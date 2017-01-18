@@ -118,6 +118,10 @@
       <Project>{1A04EFC9-8128-BD74-324E-F0A9B6366D87}</Project>
       <Name>AgniResearch.Plugins</Name>
     </ProjectReference>
+    <ProjectReference Include="AgniResearch.csproj">
+      <Project>{44D6E590-576D-F4A1-EA36-412C81C2311A}</Project>
+      <Name>AgniResearch</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Standard Assets\Editor\CrossPlatformInput\CrossPlatformInputInitialize.cs" />

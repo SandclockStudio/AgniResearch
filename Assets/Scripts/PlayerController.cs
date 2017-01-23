@@ -42,7 +42,7 @@ public class PlayerController : MonoBehaviour {
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.CompareTag("wall"))
+        if(collision.gameObject.CompareTag("Wall"))
         {
             wall = true;
         }
@@ -50,7 +50,7 @@ public class PlayerController : MonoBehaviour {
 
     private void OnCollisionExit(Collision collision)
     {
-        if (collision.gameObject.CompareTag("wall"))
+		if (collision.gameObject.CompareTag("Wall"))
         {
             wall = false;
         }

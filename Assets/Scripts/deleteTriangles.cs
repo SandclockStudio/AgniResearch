@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class deleteTriangles : MonoBehaviour {
+public class DeleteTriangles : MonoBehaviour {
 
     // Use this for initialization
     GameObject player;
@@ -12,7 +12,7 @@ public class deleteTriangles : MonoBehaviour {
         player = GameObject.FindGameObjectWithTag("Player");
     }
 
-    void deleteTri(int index)
+    void DeleteTriangle (int index)
     {
         Destroy(this.gameObject.GetComponent<MeshCollider>());
 
@@ -44,15 +44,14 @@ public class deleteTriangles : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        
-		if(Input.GetMouseButtonDown(0))
+		if (Input.GetMouseButtonDown(0))
         {
             RaycastHit hit;
 
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out hit, 1000.0f))
             {
-                deleteTri(hit.triangleIndex);
+                DeleteTriangle(hit.triangleIndex);
             }
         }
         

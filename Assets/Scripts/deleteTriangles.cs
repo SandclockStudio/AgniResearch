@@ -5,7 +5,8 @@ using UnityEngine;
 public class DeleteTriangles : MonoBehaviour {
 
     // Use this for initialization
-    GameObject player;
+    GameObject player,plane;
+	Vector3 origin,direction;
 
     private void Start()
     {
@@ -40,21 +41,26 @@ public class DeleteTriangles : MonoBehaviour {
         transform.GetComponent<MeshFilter>().mesh.triangles = newTriangles;
         this.gameObject.AddComponent<MeshCollider>();
     }
-	
-	// Update is called once per frame
-	void Update ()
-    {
-		if (Input.GetMouseButtonDown(0))
-        {
-            RaycastHit hit;
 
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(ray, out hit, 1000.0f))
-            {
-                DeleteTriangle(hit.triangleIndex);
-            }
-        }
-        
 
+	void OnCollisionStay(Collider col)
+	{
+		if (col.attachedRigidbody.tag == "Player")
+		{
+			RaycastHit hit;
+
+			origin = player.transform.position;
+
+			MeshFilter filter = gameObject.GetComponent(MeshFilter);
+
+			if(filter && filter.mesh.normals.Length > 0)
+				direction = -filter.transform.TransformDirection(filter.mesh.normals[0]);
+		
+
+			if (Physics.Raycast(origin,direction, out hit, 20.0f))
+			{
+				DeleteTriangle(hit.triangleIndex);
+			}
+		}
 	}
 }

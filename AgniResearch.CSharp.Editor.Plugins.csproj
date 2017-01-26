@@ -55,6 +55,9 @@
     <Reference Include="UnityEditor">
       <HintPath>Library\UnityAssemblies\UnityEditor.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEngine.Advertisements">
+      <HintPath>Library\UnityAssemblies\UnityEngine.Advertisements.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEditor.Advertisements">
       <HintPath>Library\UnityAssemblies\UnityEditor.Advertisements.dll</HintPath>
     </Reference>
@@ -97,6 +100,9 @@
     <Reference Include="UnityEngine.HoloLens">
       <HintPath>Library\UnityAssemblies\UnityEngine.HoloLens.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEngine.Purchasing">
+      <HintPath>Library\UnityAssemblies\UnityEngine.Purchasing.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEditor.VR">
       <HintPath>Library\UnityAssemblies\UnityEditor.VR.dll</HintPath>
     </Reference>
@@ -117,6 +123,10 @@
     <ProjectReference Include="AgniResearch.CSharp.Plugins.csproj">
       <Project>{C1AE03B6-59B3-8E11-CCEA-6FA5AB49E52D}</Project>
       <Name>AgniResearch.CSharp.Plugins</Name>
+    </ProjectReference>
+    <ProjectReference Include="AgniResearch.CSharp.csproj">
+      <Project>{6549CE14-B97A-8564-D4B5-F7180445FDB6}</Project>
+      <Name>AgniResearch.CSharp</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

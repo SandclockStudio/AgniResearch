@@ -52,6 +52,9 @@
     <Reference Include="UnityEngine">
       <HintPath>Library\UnityAssemblies\UnityEngine.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEngine.Advertisements">
+      <HintPath>Library\UnityAssemblies\UnityEngine.Advertisements.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEngine.UI">
       <HintPath>Library\UnityAssemblies\UnityEngine.UI.dll</HintPath>
     </Reference>
@@ -67,6 +70,9 @@
     <Reference Include="UnityEngine.HoloLens">
       <HintPath>Library\UnityAssemblies\UnityEngine.HoloLens.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEngine.Purchasing">
+      <HintPath>Library\UnityAssemblies\UnityEngine.Purchasing.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEngine.VR">
       <HintPath>Library\UnityAssemblies\UnityEngine.VR.dll</HintPath>
     </Reference>
@@ -81,29 +87,10 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Mirza Beig\Particle Systems\_Common\Scripts\AnimatedLight.cs" />
-    <Compile Include="Assets\Mirza Beig\Particle Systems\_Common\Scripts\DestroyAfterTime.cs" />
-    <Compile Include="Assets\Mirza Beig\Particle Systems\_Common\Scripts\DestroyOnParticlesDead.cs" />
-    <Compile Include="Assets\Mirza Beig\Particle Systems\_Common\Scripts\DestroyOnTrailsDestroyed.cs" />
-    <Compile Include="Assets\Mirza Beig\Particle Systems\_Common\Scripts\IgnoreTimeScale.cs" />
-    <Compile Include="Assets\Mirza Beig\Particle Systems\_Common\Scripts\ParticleSystems.cs" />
-    <Compile Include="Assets\Mirza Beig\Particle Systems\_Common\Scripts\ParticleSystemsSimulationSpeed.cs" />
-    <Compile Include="Assets\Mirza Beig\Particle Systems\_Common\Scripts\PerlinNoise.cs" />
-    <Compile Include="Assets\Mirza Beig\Particle Systems\_Common\Scripts\RendererSortingOrder.cs" />
-    <Compile Include="Assets\Mirza Beig\Particle Systems\_Common\Scripts\Rotator.cs" />
-    <Compile Include="Assets\Mirza Beig\Particle Systems\_Common\Scripts\TrailRenderers.cs" />
-    <Compile Include="Assets\Mirza Beig\Particle Systems\_Common\Scripts\TransformNoise.cs" />
-    <Compile Include="Assets\Mirza Beig\Particle Systems\_Common\Scripts\_Demo\DemoManager.cs" />
-    <Compile Include="Assets\Mirza Beig\Particle Systems\_Common\Scripts\_Demo\FPSDisplay.cs" />
-    <Compile Include="Assets\Mirza Beig\Particle Systems\_Common\Scripts\_Demo\FPSDisplay2.cs" />
-    <Compile Include="Assets\Mirza Beig\Particle Systems\_Common\Scripts\_Demo\FPSTest.cs" />
-    <Compile Include="Assets\Mirza Beig\Particle Systems\_Common\Scripts\_Demo\FollowMouse.cs" />
-    <Compile Include="Assets\Mirza Beig\Particle Systems\_Common\Scripts\_Demo\LoopingParticleSystemsManager.cs" />
-    <Compile Include="Assets\Mirza Beig\Particle Systems\_Common\Scripts\_Demo\OneshotParticleSystemsManager.cs" />
-    <Compile Include="Assets\Mirza Beig\Particle Systems\_Common\Scripts\_Demo\ParticleManager.cs" />
+    <Compile Include="Assets\Scripts\PlayerController.cs" />
+    <Compile Include="Assets\Scripts\deleteTriangles.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\Mirza Beig\README - Inferno VFX.txt" />
     <None Include="Assets\Standard Assets\Cameras\CameraGuidelines.txt" />
     <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
     <None Include="Assets\Standard Assets\Environment\Water (Basic)\Shaders\FXWaterBasic.shader" />

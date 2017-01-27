@@ -7,7 +7,7 @@ using System.Collections.Generic;
 public abstract class Command
 {
 	//How far should the box move when we press a button
-	protected float moveDistance = 0.2f;
+	protected float Speed = 0.2f;
 
 	//Move 
 	public abstract void Execute(Transform Player, Command command);
@@ -33,7 +33,7 @@ public class MoveUp : Command
 	//Move the box
 	public override void Move(Transform Player)
 	{
-		Player.Translate(Player.up * moveDistance);
+		Player.Translate(Player.up * Speed);
 	}
 		
 }
@@ -51,7 +51,7 @@ public class MoveDown : Command
 	//Move the box
 	public override void Move(Transform Player)
 	{
-		Player.Translate(-Player.up * moveDistance);
+		Player.Translate(-Player.up * Speed);
 	}
 }
 
@@ -68,7 +68,7 @@ public class MoveLeft : Command
 	//Move the box
 	public override void Move(Transform Player)
 	{
-		Player.Translate(-Player.right * moveDistance);
+		Player.Translate(-Player.right * Speed);
 	}
 }
 
@@ -86,7 +86,7 @@ public class MoveRight : Command
 	//Move the box
 	public override void Move(Transform Player)
 	{
-		Player.Translate(Player.right * moveDistance);
+		Player.Translate(Player.right * Speed);
 	}
 }
 	

@@ -32,8 +32,9 @@ public class PlayerBehavior : MonoBehaviour {
 			Vector3 newPos = new Vector3(distance.x- transform.localScale.x / 2, 0, distance.z - transform.localScale.z/2);
 			transform.position += newPos;
 			rope = true;
+            NotGrounded = true;
 
-		}
+        }
 	}
 
     private void OnCollisionExit(Collision collision)

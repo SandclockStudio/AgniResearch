@@ -193,13 +193,89 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 100040, guid: 614047c5bd1e57747b145f28feb3ddb8, type: 3}
+      propertyPath: m_TagString
+      value: Rope
+      objectReference: {fileID: 0}
+    - target: {fileID: 100028, guid: 614047c5bd1e57747b145f28feb3ddb8, type: 3}
+      propertyPath: m_TagString
+      value: Rope
+      objectReference: {fileID: 0}
+    - target: {fileID: 100008, guid: 614047c5bd1e57747b145f28feb3ddb8, type: 3}
+      propertyPath: m_TagString
+      value: Rope
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 614047c5bd1e57747b145f28feb3ddb8, type: 3}
+      propertyPath: m_TagString
+      value: Rope
+      objectReference: {fileID: 0}
+    - target: {fileID: 100018, guid: 614047c5bd1e57747b145f28feb3ddb8, type: 3}
+      propertyPath: m_TagString
+      value: Rope
+      objectReference: {fileID: 0}
+    - target: {fileID: 100034, guid: 614047c5bd1e57747b145f28feb3ddb8, type: 3}
+      propertyPath: m_TagString
+      value: Rope
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 614047c5bd1e57747b145f28feb3ddb8, type: 3}
+      propertyPath: m_TagString
+      value: Rope
+      objectReference: {fileID: 0}
+    - target: {fileID: 100032, guid: 614047c5bd1e57747b145f28feb3ddb8, type: 3}
+      propertyPath: m_TagString
+      value: Rope
+      objectReference: {fileID: 0}
+    - target: {fileID: 100016, guid: 614047c5bd1e57747b145f28feb3ddb8, type: 3}
+      propertyPath: m_TagString
+      value: Rope
+      objectReference: {fileID: 0}
+    - target: {fileID: 100014, guid: 614047c5bd1e57747b145f28feb3ddb8, type: 3}
+      propertyPath: m_TagString
+      value: Rope
+      objectReference: {fileID: 0}
+    - target: {fileID: 100020, guid: 614047c5bd1e57747b145f28feb3ddb8, type: 3}
+      propertyPath: m_TagString
+      value: Rope
+      objectReference: {fileID: 0}
+    - target: {fileID: 100010, guid: 614047c5bd1e57747b145f28feb3ddb8, type: 3}
+      propertyPath: m_TagString
+      value: Rope
+      objectReference: {fileID: 0}
+    - target: {fileID: 100022, guid: 614047c5bd1e57747b145f28feb3ddb8, type: 3}
+      propertyPath: m_TagString
+      value: Rope
+      objectReference: {fileID: 0}
+    - target: {fileID: 100030, guid: 614047c5bd1e57747b145f28feb3ddb8, type: 3}
+      propertyPath: m_TagString
+      value: Rope
+      objectReference: {fileID: 0}
+    - target: {fileID: 100024, guid: 614047c5bd1e57747b145f28feb3ddb8, type: 3}
+      propertyPath: m_TagString
+      value: Rope
+      objectReference: {fileID: 0}
+    - target: {fileID: 100012, guid: 614047c5bd1e57747b145f28feb3ddb8, type: 3}
+      propertyPath: m_TagString
+      value: Rope
+      objectReference: {fileID: 0}
+    - target: {fileID: 100036, guid: 614047c5bd1e57747b145f28feb3ddb8, type: 3}
+      propertyPath: m_TagString
+      value: Rope
+      objectReference: {fileID: 0}
+    - target: {fileID: 100004, guid: 614047c5bd1e57747b145f28feb3ddb8, type: 3}
+      propertyPath: m_TagString
+      value: Rope
+      objectReference: {fileID: 0}
+    - target: {fileID: 100006, guid: 614047c5bd1e57747b145f28feb3ddb8, type: 3}
+      propertyPath: m_TagString
+      value: Rope
+      objectReference: {fileID: 0}
+    - target: {fileID: 100026, guid: 614047c5bd1e57747b145f28feb3ddb8, type: 3}
+      propertyPath: m_TagString
+      value: Rope
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 614047c5bd1e57747b145f28feb3ddb8, type: 3}
   m_IsPrefabParent: 0
---- !u!4 &781447210 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 400040, guid: 614047c5bd1e57747b145f28feb3ddb8, type: 3}
-  m_PrefabInternal: {fileID: 781447209}
 --- !u!1 &781447211 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100002, guid: 614047c5bd1e57747b145f28feb3ddb8, type: 3}
@@ -297,7 +373,7 @@ HingeJoint:
     targetVelocity: 0
     force: 0
     freeSpin: 0
-  m_UseLimits: 0
+  m_UseLimits: 1
   m_Limits:
     min: 0
     max: 0
@@ -344,7 +420,7 @@ HingeJoint:
     targetVelocity: 0
     force: 0
     freeSpin: 0
-  m_UseLimits: 0
+  m_UseLimits: 1
   m_Limits:
     min: 0
     max: 0
@@ -365,7 +441,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.33, y: 0.13, z: 0.15}
+  m_Size: {x: 0.3, y: 0.2, z: 0.43}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &781447234
 Rigidbody:
@@ -392,7 +468,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.33, y: 0.13, z: 0.15}
+  m_Size: {x: 0.3, y: 0.2, z: 0.43}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!59 &781447236
 HingeJoint:
@@ -415,7 +491,7 @@ HingeJoint:
     targetVelocity: 0
     force: 0
     freeSpin: 0
-  m_UseLimits: 0
+  m_UseLimits: 1
   m_Limits:
     min: 0
     max: 0
@@ -451,7 +527,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.33, y: 0.13, z: 0.15}
+  m_Size: {x: 0.3, y: 0.2, z: 0.43}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!59 &781447239
 HingeJoint:
@@ -474,7 +550,7 @@ HingeJoint:
     targetVelocity: 0
     force: 0
     freeSpin: 0
-  m_UseLimits: 0
+  m_UseLimits: 1
   m_Limits:
     min: 0
     max: 0
@@ -510,7 +586,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.33, y: 0.13, z: 0.15}
+  m_Size: {x: 0.3, y: 0.2, z: 0.43}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!59 &781447242
 HingeJoint:
@@ -533,7 +609,7 @@ HingeJoint:
     targetVelocity: 0
     force: 0
     freeSpin: 0
-  m_UseLimits: 0
+  m_UseLimits: 1
   m_Limits:
     min: 0
     max: 0
@@ -569,7 +645,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.33, y: 0.13, z: 0.15}
+  m_Size: {x: 0.3, y: 0.2, z: 0.43}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!59 &781447245
 HingeJoint:
@@ -592,7 +668,7 @@ HingeJoint:
     targetVelocity: 0
     force: 0
     freeSpin: 0
-  m_UseLimits: 0
+  m_UseLimits: 1
   m_Limits:
     min: 0
     max: 0
@@ -628,7 +704,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.33, y: 0.13, z: 0.15}
+  m_Size: {x: 0.3, y: 0.2, z: 0.43}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!59 &781447248
 HingeJoint:
@@ -651,7 +727,7 @@ HingeJoint:
     targetVelocity: 0
     force: 0
     freeSpin: 0
-  m_UseLimits: 0
+  m_UseLimits: 1
   m_Limits:
     min: 0
     max: 0
@@ -687,7 +763,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.33, y: 0.13, z: 0.15}
+  m_Size: {x: 0.3, y: 0.2, z: 0.43}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!59 &781447251
 HingeJoint:
@@ -710,7 +786,7 @@ HingeJoint:
     targetVelocity: 0
     force: 0
     freeSpin: 0
-  m_UseLimits: 0
+  m_UseLimits: 1
   m_Limits:
     min: 0
     max: 0
@@ -746,7 +822,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.33, y: 0.13, z: 0.15}
+  m_Size: {x: 0.3, y: 0.2, z: 0.43}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!59 &781447254
 HingeJoint:
@@ -769,7 +845,7 @@ HingeJoint:
     targetVelocity: 0
     force: 0
     freeSpin: 0
-  m_UseLimits: 0
+  m_UseLimits: 1
   m_Limits:
     min: 0
     max: 0
@@ -805,7 +881,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.33, y: 0.13, z: 0.15}
+  m_Size: {x: 0.3, y: 0.2, z: 0.43}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!59 &781447257
 HingeJoint:
@@ -828,7 +904,7 @@ HingeJoint:
     targetVelocity: 0
     force: 0
     freeSpin: 0
-  m_UseLimits: 0
+  m_UseLimits: 1
   m_Limits:
     min: 0
     max: 0
@@ -864,7 +940,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.33, y: 0.13, z: 0.15}
+  m_Size: {x: 0.3, y: 0.2, z: 0.43}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!59 &781447260
 HingeJoint:
@@ -887,7 +963,7 @@ HingeJoint:
     targetVelocity: 0
     force: 0
     freeSpin: 0
-  m_UseLimits: 0
+  m_UseLimits: 1
   m_Limits:
     min: 0
     max: 0
@@ -923,7 +999,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.33, y: 0.13, z: 0.15}
+  m_Size: {x: 0.3, y: 0.2, z: 0.43}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!59 &781447263
 HingeJoint:
@@ -946,7 +1022,7 @@ HingeJoint:
     targetVelocity: 0
     force: 0
     freeSpin: 0
-  m_UseLimits: 0
+  m_UseLimits: 1
   m_Limits:
     min: 0
     max: 0
@@ -982,7 +1058,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.33, y: 0.13, z: 0.15}
+  m_Size: {x: 0.3, y: 0.2, z: 0.43}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!59 &781447266
 HingeJoint:
@@ -1005,7 +1081,7 @@ HingeJoint:
     targetVelocity: 0
     force: 0
     freeSpin: 0
-  m_UseLimits: 0
+  m_UseLimits: 1
   m_Limits:
     min: 0
     max: 0
@@ -1041,7 +1117,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.33, y: 0.13, z: 0.15}
+  m_Size: {x: 0.3, y: 0.2, z: 0.43}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!59 &781447269
 HingeJoint:
@@ -1064,7 +1140,7 @@ HingeJoint:
     targetVelocity: 0
     force: 0
     freeSpin: 0
-  m_UseLimits: 0
+  m_UseLimits: 1
   m_Limits:
     min: 0
     max: 0
@@ -1100,7 +1176,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.33, y: 0.13, z: 0.15}
+  m_Size: {x: 0.3, y: 0.2, z: 0.43}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!59 &781447272
 HingeJoint:
@@ -1123,7 +1199,7 @@ HingeJoint:
     targetVelocity: 0
     force: 0
     freeSpin: 0
-  m_UseLimits: 0
+  m_UseLimits: 1
   m_Limits:
     min: 0
     max: 0
@@ -1159,7 +1235,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.33, y: 0.13, z: 0.15}
+  m_Size: {x: 0.3, y: 0.2, z: 0.43}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!59 &781447275
 HingeJoint:
@@ -1182,7 +1258,7 @@ HingeJoint:
     targetVelocity: 0
     force: 0
     freeSpin: 0
-  m_UseLimits: 0
+  m_UseLimits: 1
   m_Limits:
     min: 0
     max: 0
@@ -1218,7 +1294,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.33, y: 0.13, z: 0.15}
+  m_Size: {x: 0.3, y: 0.2, z: 0.43}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!59 &781447278
 HingeJoint:
@@ -1241,7 +1317,7 @@ HingeJoint:
     targetVelocity: 0
     force: 0
     freeSpin: 0
-  m_UseLimits: 0
+  m_UseLimits: 1
   m_Limits:
     min: 0
     max: 0
@@ -1277,7 +1353,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.33, y: 0.13, z: 0.15}
+  m_Size: {x: 0.3, y: 0.2, z: 0.43}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!59 &781447281
 HingeJoint:
@@ -1300,7 +1376,7 @@ HingeJoint:
     targetVelocity: 0
     force: 0
     freeSpin: 0
-  m_UseLimits: 0
+  m_UseLimits: 1
   m_Limits:
     min: 0
     max: 0
@@ -1336,7 +1412,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.33, y: 0.13, z: 0.15}
+  m_Size: {x: 0.3, y: 0.2, z: 0.43}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!59 &781447284
 HingeJoint:
@@ -1359,7 +1435,7 @@ HingeJoint:
     targetVelocity: 0
     force: 0
     freeSpin: 0
-  m_UseLimits: 0
+  m_UseLimits: 1
   m_Limits:
     min: 0
     max: 0
@@ -1395,7 +1471,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.33, y: 0.13, z: 0.15}
+  m_Size: {x: 0.3, y: 0.2, z: 0.43}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1117977141
 GameObject:
@@ -1484,43 +1560,47 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1746480114
+--- !u!1 &1185692236 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1014806873519142, guid: 05a7bba51a68145cda9e436646afa418,
+    type: 2}
+  m_PrefabInternal: {fileID: 1524648674}
+--- !u!65 &1185692243
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1185692236}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.99999994, y: 0.99999994, z: 0.99999994}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &1500455625
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 1746480115}
-  - component: {fileID: 1746480118}
-  - component: {fileID: 1746480117}
-  - component: {fileID: 1746480116}
+  - component: {fileID: 1500455629}
+  - component: {fileID: 1500455628}
+  - component: {fileID: 1500455627}
+  - component: {fileID: 1500455626}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1746480115
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1746480114}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.52, y: 0, z: 0.49}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 781447210}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!23 &1746480116
+--- !u!23 &1500455626
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1746480114}
+  m_GameObject: {fileID: 1500455625}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -1546,22 +1626,106 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
---- !u!65 &1746480117
-BoxCollider:
+--- !u!64 &1500455627
+MeshCollider:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1746480114}
+  m_GameObject: {fileID: 1500455625}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!33 &1746480118
+  m_Convex: 0
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!33 &1500455628
 MeshFilter:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1746480114}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  m_GameObject: {fileID: 1500455625}
+  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &1500455629
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1500455625}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.4336133, y: -0.53, z: -0.07}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1524648674
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4829451587622146, guid: 05a7bba51a68145cda9e436646afa418, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -2.22
+      objectReference: {fileID: 0}
+    - target: {fileID: 4829451587622146, guid: 05a7bba51a68145cda9e436646afa418, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0.62
+      objectReference: {fileID: 0}
+    - target: {fileID: 4829451587622146, guid: 05a7bba51a68145cda9e436646afa418, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0.67
+      objectReference: {fileID: 0}
+    - target: {fileID: 4829451587622146, guid: 05a7bba51a68145cda9e436646afa418, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4829451587622146, guid: 05a7bba51a68145cda9e436646afa418, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4829451587622146, guid: 05a7bba51a68145cda9e436646afa418, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4829451587622146, guid: 05a7bba51a68145cda9e436646afa418, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4829451587622146, guid: 05a7bba51a68145cda9e436646afa418, type: 2}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4829451587622146, guid: 05a7bba51a68145cda9e436646afa418, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 0.42279482
+      objectReference: {fileID: 0}
+    - target: {fileID: 4829451587622146, guid: 05a7bba51a68145cda9e436646afa418, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 0.42279515
+      objectReference: {fileID: 0}
+    - target: {fileID: 4829451587622146, guid: 05a7bba51a68145cda9e436646afa418, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 0.42279515
+      objectReference: {fileID: 0}
+    - target: {fileID: 114612869562235760, guid: 05a7bba51a68145cda9e436646afa418,
+        type: 2}
+      propertyPath: speed
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 65391391252582608, guid: 05a7bba51a68145cda9e436646afa418,
+        type: 2}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 54316501890084264, guid: 05a7bba51a68145cda9e436646afa418,
+        type: 2}
+      propertyPath: m_IsKinematic
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 05a7bba51a68145cda9e436646afa418, type: 2}
+  m_IsPrefabParent: 0

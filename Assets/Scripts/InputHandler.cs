@@ -37,7 +37,7 @@ public class InputHandler : MonoBehaviour
 	//Check if we press a key, if so do what the key is binded to 
 	public void HandleInput()
 	{
-		if (Input.GetKey(KeyCode.W) && pb.getWall())
+		if (Input.GetKey(KeyCode.W) && pb.notGrounded())
 		{
 			w.Execute(Player, w);
 		}
@@ -45,7 +45,7 @@ public class InputHandler : MonoBehaviour
 		{
 			a.Execute(Player, a);
 		}
-		else if (Input.GetKey(KeyCode.S) && pb.getWall())
+		else if (Input.GetKey(KeyCode.S) && pb.notGrounded())
 		{
 			s.Execute(Player, s);
 		}

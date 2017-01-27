@@ -5,34 +5,46 @@ using UnityEngine;
 public class PlayerBehavior : MonoBehaviour {
 
     private Rigidbody rb;
-    public float speed;
-    private bool wall;
+	private bool NotGrounded,rope;
 
     // Use this for initialization
     void Start ()
     {
         rb = GetComponent<Rigidbody>();
-        wall = false;
+		NotGrounded = false;
     }
 	
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.CompareTag("Wall"))
+		if(collision.gameObject.CompareTag("Wall") || collision.gameObject.CompareTag("Rope"))
         {
-             wall = true;
+             NotGrounded = true;
 			rb.useGravity = false;
         }
     }
 
+	private void OnCollisionStay(Collision collision)
+	{
+		if (collision.gameObject.CompareTag("Rope"))
+		{
+			Vector3 distance = new Vector3((collision.rigidbody.transform.position.x - transform.position.x), (collision.rigidbody.transform.position.y - transform.position.y), (collision.rigidbody.transform.position.z - transform.position.z));
+			Vector3 newPos = new Vector3(transform.position.x+distance.x, transform.position.y, transform.position.z + distance.z - transform.localScale.z/2);
+			transform.position = newPos;
+			rope = true;
+
+		}
+	}
+
     private void OnCollisionExit(Collision collision)
     {
-		wall = false;
+		NotGrounded = false;
 		rb.useGravity = true;
+		rope = false;
     }
 
-	public bool getWall ()
+	public bool notGrounded ()
 	{
-		return wall;
+		return NotGrounded;
 	}
 }

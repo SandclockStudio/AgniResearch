@@ -171,7 +171,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400040, guid: 614047c5bd1e57747b145f28feb3ddb8, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.4377408
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400040, guid: 614047c5bd1e57747b145f28feb3ddb8, type: 3}
       propertyPath: m_LocalRotation.x
@@ -362,7 +362,7 @@ HingeJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.32693514, y: -0.000000029802322, z: -0.000000004773028}
+  m_ConnectedAnchor: {x: -0.32693514, y: 0, z: -0.000000004773028}
   m_UseSpring: 0
   m_Spring:
     spring: 0
@@ -397,7 +397,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 8
   m_CollisionDetection: 0
 --- !u!59 &781447232
 HingeJoint:
@@ -409,7 +409,7 @@ HingeJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.31959176, y: 5.7946973, z: 0.58399177}
+  m_ConnectedAnchor: {x: -0.31959176, y: 5.7946973, z: 0.14625095}
   m_UseSpring: 0
   m_Spring:
     spring: 0
@@ -441,8 +441,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.3, y: 0.2, z: 0.43}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.33, y: 0.2, z: 0.43}
+  m_Center: {x: 0.18, y: 0, z: 0}
 --- !u!54 &781447234
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -456,7 +456,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 8
   m_CollisionDetection: 0
 --- !u!65 &781447235
 BoxCollider:
@@ -468,8 +468,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.3, y: 0.2, z: 0.43}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.33, y: 0.2, z: 0.43}
+  m_Center: {x: 0.18, y: 0, z: 0}
 --- !u!59 &781447236
 HingeJoint:
   m_ObjectHideFlags: 0
@@ -515,7 +515,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 8
   m_CollisionDetection: 0
 --- !u!65 &781447238
 BoxCollider:
@@ -527,8 +527,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.3, y: 0.2, z: 0.43}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.33, y: 0.2, z: 0.43}
+  m_Center: {x: 0.18, y: 0, z: 0}
 --- !u!59 &781447239
 HingeJoint:
   m_ObjectHideFlags: 0
@@ -539,7 +539,7 @@ HingeJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.32697585, y: 1.7772801e-10, z: 0.00000003875525}
+  m_ConnectedAnchor: {x: -0.32697585, y: 0.00000005978042, z: 0.000000038755445}
   m_UseSpring: 0
   m_Spring:
     spring: 0
@@ -574,7 +574,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 8
   m_CollisionDetection: 0
 --- !u!65 &781447241
 BoxCollider:
@@ -586,8 +586,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.3, y: 0.2, z: 0.43}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.33, y: 0.2, z: 0.43}
+  m_Center: {x: 0.18, y: 0, z: 0}
 --- !u!59 &781447242
 HingeJoint:
   m_ObjectHideFlags: 0
@@ -633,7 +633,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 8
   m_CollisionDetection: 0
 --- !u!65 &781447244
 BoxCollider:
@@ -645,8 +645,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.3, y: 0.2, z: 0.43}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.33, y: 0.2, z: 0.43}
+  m_Center: {x: 0.18, y: 0, z: 0}
 --- !u!59 &781447245
 HingeJoint:
   m_ObjectHideFlags: 0
@@ -692,7 +692,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 8
   m_CollisionDetection: 0
 --- !u!65 &781447247
 BoxCollider:
@@ -704,8 +704,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.3, y: 0.2, z: 0.43}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.33, y: 0.2, z: 0.43}
+  m_Center: {x: 0.18, y: 0, z: 0}
 --- !u!59 &781447248
 HingeJoint:
   m_ObjectHideFlags: 0
@@ -751,7 +751,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 8
   m_CollisionDetection: 0
 --- !u!65 &781447250
 BoxCollider:
@@ -763,8 +763,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.3, y: 0.2, z: 0.43}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.33, y: 0.2, z: 0.43}
+  m_Center: {x: 0.18, y: 0, z: 0}
 --- !u!59 &781447251
 HingeJoint:
   m_ObjectHideFlags: 0
@@ -810,7 +810,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 8
   m_CollisionDetection: 0
 --- !u!65 &781447253
 BoxCollider:
@@ -822,8 +822,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.3, y: 0.2, z: 0.43}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.33, y: 0.2, z: 0.43}
+  m_Center: {x: 0.18, y: 0, z: 0}
 --- !u!59 &781447254
 HingeJoint:
   m_ObjectHideFlags: 0
@@ -869,7 +869,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 8
   m_CollisionDetection: 0
 --- !u!65 &781447256
 BoxCollider:
@@ -881,8 +881,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.3, y: 0.2, z: 0.43}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.33, y: 0.2, z: 0.43}
+  m_Center: {x: 0.18, y: 0, z: 0}
 --- !u!59 &781447257
 HingeJoint:
   m_ObjectHideFlags: 0
@@ -928,7 +928,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 8
   m_CollisionDetection: 0
 --- !u!65 &781447259
 BoxCollider:
@@ -940,8 +940,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.3, y: 0.2, z: 0.43}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.33, y: 0.2, z: 0.43}
+  m_Center: {x: 0.18, y: 0, z: 0}
 --- !u!59 &781447260
 HingeJoint:
   m_ObjectHideFlags: 0
@@ -987,7 +987,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 8
   m_CollisionDetection: 0
 --- !u!65 &781447262
 BoxCollider:
@@ -999,8 +999,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.3, y: 0.2, z: 0.43}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.33, y: 0.2, z: 0.43}
+  m_Center: {x: 0.18, y: 0, z: 0}
 --- !u!59 &781447263
 HingeJoint:
   m_ObjectHideFlags: 0
@@ -1046,7 +1046,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 8
   m_CollisionDetection: 0
 --- !u!65 &781447265
 BoxCollider:
@@ -1058,8 +1058,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.3, y: 0.2, z: 0.43}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.33, y: 0.2, z: 0.43}
+  m_Center: {x: 0.18, y: 0, z: 0}
 --- !u!59 &781447266
 HingeJoint:
   m_ObjectHideFlags: 0
@@ -1105,7 +1105,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 8
   m_CollisionDetection: 0
 --- !u!65 &781447268
 BoxCollider:
@@ -1117,8 +1117,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.3, y: 0.2, z: 0.43}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.33, y: 0.2, z: 0.43}
+  m_Center: {x: 0.18, y: 0, z: 0}
 --- !u!59 &781447269
 HingeJoint:
   m_ObjectHideFlags: 0
@@ -1164,7 +1164,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 8
   m_CollisionDetection: 0
 --- !u!65 &781447271
 BoxCollider:
@@ -1176,8 +1176,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.3, y: 0.2, z: 0.43}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.33, y: 0.2, z: 0.43}
+  m_Center: {x: 0.18, y: 0, z: 0}
 --- !u!59 &781447272
 HingeJoint:
   m_ObjectHideFlags: 0
@@ -1223,7 +1223,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 8
   m_CollisionDetection: 0
 --- !u!65 &781447274
 BoxCollider:
@@ -1235,8 +1235,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.3, y: 0.2, z: 0.43}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.33, y: 0.2, z: 0.43}
+  m_Center: {x: 0.18, y: 0, z: 0}
 --- !u!59 &781447275
 HingeJoint:
   m_ObjectHideFlags: 0
@@ -1282,7 +1282,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 8
   m_CollisionDetection: 0
 --- !u!65 &781447277
 BoxCollider:
@@ -1294,8 +1294,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.3, y: 0.2, z: 0.43}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.33, y: 0.2, z: 0.43}
+  m_Center: {x: 0.18, y: 0, z: 0}
 --- !u!59 &781447278
 HingeJoint:
   m_ObjectHideFlags: 0
@@ -1341,7 +1341,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 8
   m_CollisionDetection: 0
 --- !u!65 &781447280
 BoxCollider:
@@ -1353,8 +1353,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.3, y: 0.2, z: 0.43}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.33, y: 0.2, z: 0.43}
+  m_Center: {x: 0.18, y: 0, z: 0}
 --- !u!59 &781447281
 HingeJoint:
   m_ObjectHideFlags: 0
@@ -1400,7 +1400,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 8
   m_CollisionDetection: 0
 --- !u!65 &781447283
 BoxCollider:
@@ -1412,8 +1412,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.3, y: 0.2, z: 0.43}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.33, y: 0.2, z: 0.43}
+  m_Center: {x: 0.18, y: 0, z: 0}
 --- !u!59 &781447284
 HingeJoint:
   m_ObjectHideFlags: 0
@@ -1459,7 +1459,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 8
   m_CollisionDetection: 0
 --- !u!65 &781447286
 BoxCollider:
@@ -1471,8 +1471,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.3, y: 0.2, z: 0.43}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.33, y: 0.2, z: 0.43}
+  m_Center: {x: 0.18, y: 0, z: 0}
 --- !u!1 &1117977141
 GameObject:
   m_ObjectHideFlags: 0
@@ -1565,6 +1565,22 @@ GameObject:
   m_PrefabParentObject: {fileID: 1014806873519142, guid: 05a7bba51a68145cda9e436646afa418,
     type: 2}
   m_PrefabInternal: {fileID: 1524648674}
+--- !u!4 &1185692237 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4829451587622146, guid: 05a7bba51a68145cda9e436646afa418,
+    type: 2}
+  m_PrefabInternal: {fileID: 1524648674}
+--- !u!114 &1185692238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1185692236}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9fb2c7f19afb45f9bc3484680598cb9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!65 &1185692243
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1577,6 +1593,47 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.99999994, y: 0.99999994, z: 0.99999994}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &1298478486
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1298478488}
+  - component: {fileID: 1298478487}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1298478487
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1298478486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f967605f56234d2a95c35818293e7ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Player: {fileID: 1185692237}
+--- !u!4 &1298478488
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1298478486}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -2.22, y: 0.62, z: 0}
+  m_LocalScale: {x: 0.42279482, y: 0.42279515, z: 0.42279515}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1500455625
 GameObject:
   m_ObjectHideFlags: 0
@@ -1677,7 +1734,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4829451587622146, guid: 05a7bba51a68145cda9e436646afa418, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 0.67
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4829451587622146, guid: 05a7bba51a68145cda9e436646afa418, type: 2}
       propertyPath: m_LocalRotation.x
@@ -1726,6 +1783,16 @@ Prefab:
       propertyPath: m_IsKinematic
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 1014806873519142, guid: 05a7bba51a68145cda9e436646afa418, type: 2}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 54316501890084264, guid: 05a7bba51a68145cda9e436646afa418,
+        type: 2}
+      propertyPath: m_Constraints
+      value: 120
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 114612869562235760, guid: 05a7bba51a68145cda9e436646afa418, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 05a7bba51a68145cda9e436646afa418, type: 2}
   m_IsPrefabParent: 0

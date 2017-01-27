@@ -44,7 +44,7 @@ public class PlayerController : MonoBehaviour {
     {
         if(collision.gameObject.CompareTag("Wall"))
         {
-            wall = true;
+             wall = true;
         }
     }
 

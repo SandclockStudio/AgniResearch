@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DeleteTriangles : MonoBehaviour {
+public class deleteTriangles : MonoBehaviour 
+{
 
     // Use this for initialization
     GameObject player,plane;
@@ -43,15 +44,15 @@ public class DeleteTriangles : MonoBehaviour {
     }
 
 
-	void OnCollisionStay(Collider col)
+	void OnCollisionStay(Collision col) 
 	{
-		if (col.attachedRigidbody.tag == "Player")
+		if (col.rigidbody.tag == "Player")
 		{
 			RaycastHit hit;
 
 			origin = player.transform.position;
 
-			MeshFilter filter = gameObject.GetComponent(MeshFilter);
+			MeshFilter filter = (MeshFilter)gameObject.GetComponent<MeshFilter>();
 
 			if(filter && filter.mesh.normals.Length > 0)
 				direction = -filter.transform.TransformDirection(filter.mesh.normals[0]);
@@ -61,6 +62,6 @@ public class DeleteTriangles : MonoBehaviour {
 			{
 				DeleteTriangle(hit.triangleIndex);
 			}
-		}
-	}
+		 }
+	 }
 }

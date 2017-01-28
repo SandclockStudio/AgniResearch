@@ -9,7 +9,6 @@ public class DeleteRope : MonoBehaviour
 
     void Start()
     {
-       
     }
 
     void DeleteRopes()

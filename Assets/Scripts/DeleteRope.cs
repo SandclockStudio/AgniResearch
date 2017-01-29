@@ -6,15 +6,17 @@ public class DeleteRope : MonoBehaviour
 {
 
     // Use this for initialization
+    GameObject player;
 
     void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     void DeleteRopes()
     {
    
-        Destroy(gameObject, 1.0f);
+        Destroy(gameObject, 0.079f);
     }
 
     private void OnCollisionExit(Collision collision)

@@ -38,6 +38,14 @@ public class PlayerController : MonoBehaviour {
         {
             rb.AddForce(new Vector3(0, -1, 0) * speed);
         }
+
+        // FOR TESTING PURPOSES:
+        if (Input.GetKey(KeyCode.Q)) {
+            transform.Rotate(0, -10, 0);
+        }
+        else if (Input.GetKey(KeyCode.E)) {
+            transform.Rotate(0, 10, 0);
+        }
     }
 
     private void OnCollisionEnter(Collision collision)

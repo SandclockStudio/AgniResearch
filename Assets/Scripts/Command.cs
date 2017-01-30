@@ -7,7 +7,7 @@ using System.Collections.Generic;
 public abstract class Command
 {
 	//How far should the box move when we press a button
-	protected float Speed = 0.2f;
+	protected float Speed = 0.1f;
 
 	//Move 
 	public abstract void Execute(Transform Player, Command command);

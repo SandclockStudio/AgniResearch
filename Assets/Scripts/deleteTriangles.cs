@@ -8,20 +8,74 @@ public class deleteTriangles : MonoBehaviour
     // Use this for initialization
     GameObject player,plane;
 	Vector3 origin,direction;
-	bool waitB;
+	List<MyTriangle> trianglesList = new List<MyTriangle>();
+	List<int> indexs = new List<int>();
+
+	public GameObject meshToDelete;
 
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-		waitB = false;
     }
 
-	void DeleteTriangle (int index,float time)
+	void Update()
+	{
+		for(int i = 0; i < trianglesList.Count; i++)
+		{
+			trianglesList[i].update();
+			if(trianglesList[i].getTime() <= 0)
+			{
+				destroyTriangle(trianglesList[i].getTriangles());
+				trianglesList.RemoveAt(i);
+			}
+		}
+	}
+
+	void addTriangle (int index,float time)
     {
-		waitB = true;
-		StartCoroutine(waitAndDelete(index,time));
+		
+		Mesh mesh = transform.GetComponent<MeshFilter>().mesh;
+		int[] meshTriangles = mesh.triangles;
+		int[] triangles = new int[3];
+
+		triangles[0] = meshTriangles[(index*3)];
+		triangles[1] = meshTriangles[(index*3)+1];
+		triangles[2] = meshTriangles[(index*3)+2];
+
+		MyTriangle triangle = new MyTriangle(triangles,time);
+		trianglesList.Add(triangle);
     }
 
+
+	void destroyTriangle(int [] triangles)
+	{
+		Mesh mesh = meshToDelete.transform.GetComponent<MeshFilter>().mesh;
+		int[] oldTriangles = mesh.triangles;
+
+		int[] newTriangles = new int[mesh.triangles.Length - 3];
+
+		int j = 0;
+		int i = 0;
+
+		while(j < mesh.triangles.Length)
+		{	
+			if((triangles[0] == oldTriangles[j] && triangles[1] == oldTriangles[j+1] && triangles[2] == oldTriangles[j+2]))
+			{
+				j+=3;
+			}
+			else
+			{
+				newTriangles[i++] = oldTriangles[j++];
+				newTriangles[i++] = oldTriangles[j++];
+				newTriangles[i++] = oldTriangles[j++];
+			
+			}
+		}
+
+		Destroy(meshToDelete.gameObject.GetComponent<MeshCollider>());
+		meshToDelete.transform.GetComponent<MeshFilter>().mesh.triangles = newTriangles;
+		meshToDelete.gameObject.AddComponent<MeshCollider>();
+	}
 
 	void OnCollisionStay(Collision col) 
 	{
@@ -37,41 +91,11 @@ public class deleteTriangles : MonoBehaviour
 				direction = -filter.transform.TransformDirection(filter.mesh.normals[0]);
 		
 
-			if (Physics.Raycast(origin,direction, out hit, 20.0f) && !waitB)
+			if (Physics.Raycast(origin,direction, out hit, 20.0f) && !indexs.Contains(hit.triangleIndex)) 
 			{
-				DeleteTriangle(hit.triangleIndex,0.5f);
+				addTriangle(hit.triangleIndex,0.7f);
+				indexs.Add(hit.triangleIndex);
 			}
 		 }
 	 }
-
-	IEnumerator waitAndDelete(int index,float time)
-	{
-		yield return new WaitForSeconds(time);
-
-		Destroy(this.gameObject.GetComponent<MeshCollider>());
-		Mesh mesh = transform.GetComponent<MeshFilter>().mesh;
-		int[] oldTriangles = mesh.triangles;
-
-		int[] newTriangles = new int[mesh.triangles.Length - 3];
-
-		int i = 0;
-		int j = 0;
-
-		while(j < mesh.triangles.Length)
-		{
-			if(j != index * 3)
-			{
-				newTriangles[i++] = oldTriangles[j++];
-				newTriangles[i++] = oldTriangles[j++];
-				newTriangles[i++] = oldTriangles[j++];
-			}
-			else
-			{
-				j += 3;
-			}
-		}
-		transform.GetComponent<MeshFilter>().mesh.triangles = newTriangles;
-		this.gameObject.AddComponent<MeshCollider>();
-		waitB = false;	
-	}
 }

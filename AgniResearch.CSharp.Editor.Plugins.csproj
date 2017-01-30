@@ -127,6 +127,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Shaders\Agni-Additive.shader" />
+    <None Include="Assets\Shaders\Smoke-Multiply.shader" />
     <None Include="Assets\Standard Assets\Cameras\CameraGuidelines.txt" />
     <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
     <None Include="Assets\Standard Assets\Effects\ToonShading\Shaders\ToonBasic.shader" />

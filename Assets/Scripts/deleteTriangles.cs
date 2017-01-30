@@ -23,10 +23,10 @@ public class deleteTriangles : MonoBehaviour
 		for(int i = 0; i < trianglesList.Count; i++)
 		{
 			trianglesList[i].update();
-			if(trianglesList[i].getTime() <= 0 && trianglesList[i].delete == false)
+			if(trianglesList[i].getTime() <= 0)
 			{
 				destroyTriangle(trianglesList[i].getTriangles());
-				trianglesList[i].delete = true;
+				trianglesList.RemoveAt(i);
 			}
 		}
 	}
@@ -56,23 +56,19 @@ public class deleteTriangles : MonoBehaviour
 
 		int j = 0;
 		int i = 0;
-	
-		bool hola = true;
 
-		while(j < mesh.triangles.Length-3)
+		while(j < mesh.triangles.Length)
 		{	
-			
-			if(triangles[0] != oldTriangles[j] && triangles[1] != oldTriangles[j+1] && triangles[2] != oldTriangles[j+2] )
+			if((triangles[0] == oldTriangles[j] && triangles[1] == oldTriangles[j+1] && triangles[2] == oldTriangles[j+2]))
 			{
-				
-				newTriangles[i++] = oldTriangles[j++];
-				newTriangles[i++] = oldTriangles[j++];
-				newTriangles[i++] = oldTriangles[j++];
-
+				j+=3;
 			}
 			else
 			{
-				j+=3;
+				newTriangles[i++] = oldTriangles[j++];
+				newTriangles[i++] = oldTriangles[j++];
+				newTriangles[i++] = oldTriangles[j++];
+			
 			}
 		}
 

@@ -88,6 +88,7 @@
     <Compile Include="Assets\Scripts\PlayerBehavior.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
     <Compile Include="Assets\Scripts\ShaderAnimationBehaviour.cs" />
+    <Compile Include="Assets\Scripts\TriggerCameraRotation.cs" />
     <Compile Include="Assets\Scripts\deleteTriangles.cs" />
   </ItemGroup>
   <ItemGroup>

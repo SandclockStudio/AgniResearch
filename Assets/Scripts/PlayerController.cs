@@ -21,22 +21,22 @@ public class PlayerController : MonoBehaviour {
     {
         if (Input.GetKey(KeyCode.D))
         {
-            rb.AddForce(new Vector3(1,0,0)*speed);
+            rb.AddForce(transform.TransformDirection(Vector3.forward) * speed);
         }
 
         if (Input.GetKey(KeyCode.A))
         {
-            rb.AddForce(new Vector3(-1, 0, 0) * speed);
+            rb.AddForce(transform.TransformDirection(Vector3.back) * speed);
         }
 
         if (Input.GetKey(KeyCode.W) && (wall || rope))
         {
-            rb.AddForce(new Vector3(0, 1, 0) * speed);
+            rb.AddForce(transform.TransformDirection(Vector3.up) * speed);
         }
 
         if (Input.GetKey(KeyCode.S) && wall)
         {
-            rb.AddForce(new Vector3(0, -1, 0) * speed);
+            rb.AddForce(transform.TransformDirection(Vector3.down) * speed);
         }
 
         // FOR TESTING PURPOSES:

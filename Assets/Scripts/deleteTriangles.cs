@@ -49,7 +49,11 @@ public class deleteTriangles : MonoBehaviour
 
 	void destroyTriangle(int [] triangles)
 	{
-		Mesh mesh = meshToDelete.transform.GetComponent<MeshFilter>().mesh;
+        // /*
+        Destroy(meshToDelete.gameObject.GetComponent<MeshCollider>());
+        // */
+
+        Mesh mesh = meshToDelete.transform.GetComponent<MeshFilter>().mesh;
 		int[] oldTriangles = mesh.triangles;
 
 		int[] newTriangles = new int[mesh.triangles.Length - 3];
@@ -72,10 +76,17 @@ public class deleteTriangles : MonoBehaviour
 			}
 		}
 
-		Destroy(meshToDelete.gameObject.GetComponent<MeshCollider>());
-		meshToDelete.transform.GetComponent<MeshFilter>().mesh.triangles = newTriangles;
-		meshToDelete.gameObject.AddComponent<MeshCollider>();
-	}
+
+        meshToDelete.transform.GetComponent<MeshFilter>().mesh.triangles = newTriangles;
+
+        // /*
+        if (meshToDelete.gameObject.GetComponent<MeshCollider>() == null)
+        {
+            meshToDelete.gameObject.AddComponent<MeshCollider>();
+        }
+        // */
+    
+    }
 
 	void OnCollisionStay(Collision col) 
 	{
@@ -89,9 +100,10 @@ public class deleteTriangles : MonoBehaviour
 
 			if(filter && filter.mesh.normals.Length > 0)
 				direction = -filter.transform.TransformDirection(filter.mesh.normals[0]);
-		
 
-			if (Physics.Raycast(origin,direction, out hit, 20.0f) && !indexs.Contains(hit.triangleIndex)) 
+            Debug.DrawRay(origin, direction, Color.green);
+
+            if (Physics.Raycast(origin,direction, out hit, 20.0f) && !indexs.Contains(hit.triangleIndex)) 
 			{
 				addTriangle(hit.triangleIndex,0.7f);
 				indexs.Add(hit.triangleIndex);

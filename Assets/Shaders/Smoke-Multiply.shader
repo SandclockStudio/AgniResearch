@@ -82,9 +82,9 @@ Category {
 				float absolute = abs(dotProduct);
 				float alphaValue = min(1.0, pow(absolute, 3));
 
-				fixed4 col = 2.0f * i.color * _TintColor * tex2D(_MainTex, i.texcoord);
+				fixed4 col = i.color * _TintColor * tex2D(_MainTex, i.texcoord);
 				
-				col.a = alphaValue * (length(col.xyz) * 3);
+				col.a = saturate(alphaValue * (log(length(col.xyz) * 20)));
 
 				UNITY_APPLY_FOG_COLOR(i.fogCoord, col, fixed4(0,0,0,0)); // fog towards black due to our blend mode
 
@@ -169,7 +169,7 @@ Category {
 
 				fixed4 col = i.color * _TintColor * tex2D(_MainTex, i.texcoord);
 				
-				col.a = alphaValue * length(col.xyz);
+				col.a = saturate(alphaValue * (log(length(col.xyz) * 50)));
 
 				UNITY_APPLY_FOG_COLOR(i.fogCoord, col, fixed4(0,0,0,0)); // fog towards black due to our blend mode
 

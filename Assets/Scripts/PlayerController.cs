@@ -2,70 +2,72 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(MovementBehaviour))]
+[RequireComponent(typeof(SparksBehaviour))]
 public class PlayerController : MonoBehaviour {
 
-    private Rigidbody rb;
-    public float speed;
-    private bool wall, rope;
+	private MovementBehaviour m_Movement;
+    private SparksBehaviour m_Sparks;
+
+    private bool CanMoveVertical {
+    	get {
+    		return wall || rope;
+    	}
+    }
+
+    private bool wall = false, rope = false;
 
     // Use this for initialization
-    void Start ()
-    {
-        rb = GetComponent<Rigidbody>();
-        wall = false;
+    void Start () {
+    	m_Movement = GetComponent<MovementBehaviour>();
+    	m_Sparks = GetComponent<SparksBehaviour>();
     }
 	
 	// Update is called once per frame
+    void Update () {
+    	float x = Input.GetAxis("Horizontal");
+		float y = Input.GetAxis("Vertical");
 
-    void Update()
-    {
-        if (Input.GetKey(KeyCode.D))
-        {
-            rb.AddForce(transform.TransformDirection(Vector3.forward) * speed);
+		float aim = Input.GetAxis("Aim");
+
+		Vector3 direction = Vector3.zero;
+
+	    if (Mathf.Abs(aim) > 0) {
+
+        	m_Sparks.Aim(aim);
         }
+		if (Input.GetButtonDown("Sparks")) {
 
-        if (Input.GetKey(KeyCode.A))
-        {
-            rb.AddForce(transform.TransformDirection(Vector3.back) * speed);
-        }
-
-        if (Input.GetKey(KeyCode.W) && (wall || rope))
-        {
-            rb.AddForce(transform.TransformDirection(Vector3.up) * speed);
-        }
-
-        if (Input.GetKey(KeyCode.S) && wall)
-        {
-            rb.AddForce(transform.TransformDirection(Vector3.down) * speed);
+            m_Sparks.Throw();
         }
 
-        // FOR TESTING PURPOSES:
-        if (Input.GetKey(KeyCode.Q)) {
-            transform.Rotate(0, -10, 0);
+		if (Mathf.Abs(x) > 0) {
+			direction += transform.TransformDirection(Vector3.forward) * x;
         }
-        else if (Input.GetKey(KeyCode.E)) {
-            transform.Rotate(0, 10, 0);
+
+		if (Mathf.Abs(y) > 0 && CanMoveVertical) {
+			direction += transform.TransformDirection(Vector3.up) * y;
         }
+
+        m_Movement.SetDirection(direction);
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        if(collision.gameObject.CompareTag("Wall"))
-        {
+    private void OnCollisionEnter (Collision collision) {
+        if (collision.gameObject.CompareTag("Wall")) {
              wall = true;
         }
-      
     }
 
-    private void OnCollisionStay(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Rope"))
-        {
-            Vector3 distance = new Vector3((collision.rigidbody.transform.position.x - transform.position.x), (collision.rigidbody.transform.position.y - transform.position.y), (collision.rigidbody.transform.position.z - transform.position.z));
-            Vector3 newPos = new Vector3(transform.position.x+distance.x, transform.position.y, transform.position.z + distance.z - transform.localScale.z/2);
-            transform.position = newPos;
+    private void OnCollisionStay (Collision collision) {
+        if (collision.gameObject.CompareTag("Rope")) {
+            Vector3 direction = collision.transform.position - transform.position;
+            transform.position += new Vector3(direction.x, 0, direction.z - transform.localScale.z/2);
+
             rope = true;
-           
+        }
+
+        if (CanMoveVertical) {
+        	m_Movement.UseGravity = false;
         }
     }
 
@@ -78,6 +80,10 @@ public class PlayerController : MonoBehaviour {
         if (collision.gameObject.CompareTag("Rope"))
         {
             rope = false;
+        }
+
+		if (!CanMoveVertical) {
+        	m_Movement.UseGravity = true;
         }
     }
 

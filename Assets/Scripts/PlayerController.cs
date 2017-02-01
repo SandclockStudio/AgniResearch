@@ -3,28 +3,34 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(MovementBehaviour))]
+//[RequireComponent(typeof(PlayerMovementBehaviour))]
 [RequireComponent(typeof(SparksBehaviour))]
-public class PlayerController : MonoBehaviour {
 
+public class PlayerController : MonoBehaviour
+{
 	private MovementBehaviour m_Movement;
+	//private PlayerMovementBehaviour m_Movement;
     private SparksBehaviour m_Sparks;
 
-    private bool CanMoveVertical {
-    	get {
+    private bool CanMoveVertical
+    {
+    	get
+    	{
     		return wall || rope;
     	}
     }
 
     private bool wall = false, rope = false;
 
-    // Use this for initialization
-    void Start () {
-    	m_Movement = GetComponent<MovementBehaviour>();
+    void Start ()
+    {
+		m_Movement = GetComponent<MovementBehaviour>();
+		//m_Movement = GetComponent<PlayerMovementBehaviour>();
     	m_Sparks = GetComponent<SparksBehaviour>();
     }
 	
-	// Update is called once per frame
-    void Update () {
+    void Update ()
+    {
     	float x = Input.GetAxis("Horizontal");
 		float y = Input.GetAxis("Vertical");
 
@@ -32,57 +38,66 @@ public class PlayerController : MonoBehaviour {
 
 		Vector3 direction = Vector3.zero;
 
-	    if (Mathf.Abs(aim) > 0) {
+	    if (Mathf.Abs(aim) > 0)
+	    {
 
         	m_Sparks.Aim(aim);
         }
-		if (Input.GetButtonDown("Sparks")) {
+		if (Input.GetButtonDown("Sparks"))
+		{
 
             m_Sparks.Throw();
         }
 
-		if (Mathf.Abs(x) > 0) {
-			direction += transform.TransformDirection(Vector3.forward) * x;
+		if (Mathf.Abs(x) > 0)
+		{
+			direction += transform.TransformDirection(Vector3.forward * x);
+			//direction += Vector3.forward * x;
         }
 
-		if (Mathf.Abs(y) > 0 && CanMoveVertical) {
-			direction += transform.TransformDirection(Vector3.up) * y;
+		if (Mathf.Abs(y) > 0 && CanMoveVertical)
+		{
+			direction += transform.TransformDirection(Vector3.up * y);
+			//direction += Vector3.up * y;
         }
 
         m_Movement.SetDirection(direction);
     }
 
-    private void OnCollisionEnter (Collision collision) {
-        if (collision.gameObject.CompareTag("Wall")) {
-             wall = true;
+    private void OnCollisionEnter (Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Wall"))
+        {
+            wall = true;
         }
-    }
-
-    private void OnCollisionStay (Collision collision) {
-        if (collision.gameObject.CompareTag("Rope")) {
-            Vector3 direction = collision.transform.position - transform.position;
-            transform.position += new Vector3(direction.x, 0, direction.z - transform.localScale.z/2);
-
+		else if (collision.gameObject.CompareTag("Rope"))
+		{
             rope = true;
         }
 
-        if (CanMoveVertical) {
+		if (CanMoveVertical) {
         	m_Movement.UseGravity = false;
         }
     }
 
-    private void OnCollisionExit(Collision collision)
+    private void OnCollisionStay (Collision collision)
+    {
+        
+    }
+
+    private void OnCollisionExit (Collision collision)
     {
 		if (collision.gameObject.CompareTag("Wall"))
         {
             wall = false;
         }
-        if (collision.gameObject.CompareTag("Rope"))
+        else if (collision.gameObject.CompareTag("Rope"))
         {
             rope = false;
         }
 
-		if (!CanMoveVertical) {
+		if (!CanMoveVertical)
+		{
         	m_Movement.UseGravity = true;
         }
     }

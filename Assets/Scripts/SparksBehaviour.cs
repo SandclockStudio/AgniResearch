@@ -9,7 +9,7 @@ public class SparksBehaviour : MonoBehaviour {
 
 	[SerializeField] private GameObject m_SparkPrefab;
 	[SerializeField] private int m_SparkCount = 10; 
-	[SerializeField] private float m_Step = 1f; 
+	[SerializeField] private float m_Step = 1; 
 	[SerializeField] private float m_Limit = 0.25f; 
 	[SerializeField] private int m_Spread = 45; 
 
@@ -41,6 +41,7 @@ public class SparksBehaviour : MonoBehaviour {
 		List<GameObject> sparks = new List<GameObject>();
 
 		while (sparks.Count < m_SparkCount) {
+			
 			GameObject spark = Instantiate(m_SparkPrefab, m_Origin.position, Quaternion.identity) as GameObject;
 			spark.SetActive(false);
 			sparks.Add(spark);
@@ -49,7 +50,9 @@ public class SparksBehaviour : MonoBehaviour {
 		int i = m_SparkCount / 2 * -1;
 
 		while (sparks.Count > 0) {
+
 			int index = Random.Range(0, sparks.Count);
+
 			GameObject spark = sparks[index];
 
 			Vector3 direction = Vector3.Normalize(m_Aim.position - m_Origin.position);

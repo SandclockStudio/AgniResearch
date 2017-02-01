@@ -521,7 +521,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1613807340}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 078cee1f6743e2d47bc7ddc4b5b0cab6, type: 3}
+  m_Script: {fileID: 11500000, guid: cbc60797bbe4e4290aeaf0604d83e46f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   meshToDelete: {fileID: 1023301089}

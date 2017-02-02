@@ -442,6 +442,89 @@ ModelImporter:
     4300160: Cylinder048
     4300162: Base-MetacrilatoCesped006
     4300164: Base-MetacrilatoCesped007
+    6400000: Base-MetacrilatoAcera
+    6400002: Base-MetacrilatoCesped006
+    6400004: Base-MetacrilatoCesped007
+    6400006: Base-MetacrilatoCesped1
+    6400008: Base-MetacrilatoCesped2
+    6400010: Box028
+    6400012: Box040
+    6400014: Box043
+    6400016: Box057
+    6400018: Box067
+    6400020: Box084
+    6400022: Box087
+    6400024: Box088
+    6400026: Box090
+    6400028: Box091
+    6400030: Box092
+    6400032: Box093
+    6400034: Box094
+    6400036: Box095
+    6400038: Box096
+    6400040: Box097
+    6400042: Box098
+    6400044: Box099
+    6400046: Box100
+    6400048: Box101
+    6400050: Box102
+    6400052: Box103
+    6400054: Box104
+    6400056: Box105
+    6400058: Box106
+    6400060: Box107
+    6400062: Box108
+    6400064: Box109
+    6400066: Box110
+    6400068: Box111
+    6400070: Building0
+    6400072: Building005
+    6400074: Building007
+    6400076: Building1
+    6400078: Building2
+    6400080: Building3
+    6400082: Building4
+    6400084: Cylinder002
+    6400086: Cylinder003
+    6400088: Cylinder006
+    6400090: Cylinder007
+    6400092: Cylinder008
+    6400094: Cylinder009
+    6400096: Cylinder010
+    6400098: Cylinder011
+    6400100: Cylinder015
+    6400102: Cylinder017
+    6400104: Cylinder018
+    6400106: Cylinder019
+    6400108: Cylinder021
+    6400110: Cylinder022
+    6400112: Cylinder024
+    6400114: Cylinder025
+    6400116: Cylinder026
+    6400118: Cylinder028
+    6400120: Cylinder029
+    6400122: Cylinder030
+    6400124: Cylinder031
+    6400126: Cylinder032
+    6400128: Cylinder033
+    6400130: Cylinder034
+    6400132: Cylinder035
+    6400134: Cylinder036
+    6400136: Cylinder037
+    6400138: Cylinder038
+    6400140: Cylinder039
+    6400142: Cylinder040
+    6400144: Cylinder047
+    6400146: Cylinder048
+    6400148: Object001
+    6400150: Object002
+    6400152: Object003
+    6400154: Pyramid001
+    6400156: Sphere001
+    6400158: Sphere003
+    6400160: Sphere004
+    6400162: Sphere005
+    6400164: Sphere006
   materials:
     importMaterials: 1
     materialName: 0
@@ -468,7 +551,7 @@ ModelImporter:
     lODScreenPercentages: []
     globalScale: 10
     meshCompression: 0
-    addColliders: 0
+    addColliders: 1
     importBlendShapes: 0
     swapUVChannels: 0
     generateSecondaryUV: 0

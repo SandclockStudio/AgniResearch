@@ -5,15 +5,14 @@ using System.Collections.Generic;
 
 public class InputHandler : MonoBehaviour
 {
-	//The box we control with keys
-	public Transform Player;
+
 	//The different keys we need
 	private Command w, a, s, d;
 	//Stores all commands for replay and undo
 	public static List<Command> oldCommands = new List<Command>();
 
-	GameObject playerObject;
-	PlayerBehavior pb;
+	GameObject Player;
+	PlayerController pc;
 
 	void Start()
 	{
@@ -22,8 +21,8 @@ public class InputHandler : MonoBehaviour
 		a = new MoveLeft();
 		s = new MoveDown();
 		d = new MoveRight();
-		playerObject = GameObject.FindWithTag("Player");
-		pb = playerObject.GetComponent<PlayerBehavior>();
+		Player = GameObject.FindWithTag("Player");
+		pc = Player.GetComponent<PlayerController>();
 	}
 
 
@@ -37,21 +36,21 @@ public class InputHandler : MonoBehaviour
 	//Check if we press a key, if so do what the key is binded to 
 	public void HandleInput()
 	{
-		if (Input.GetKey(KeyCode.W) && pb.notGrounded())
+		if (Input.GetKey(KeyCode.W) && pc.Grounded)
 		{
-			w.Execute(Player, w);
+			w.Execute(Player);
 		}
 		else if (Input.GetKey(KeyCode.A))
 		{
-			a.Execute(Player, a);
+			a.Execute(Player);
 		}
-		else if (Input.GetKey(KeyCode.S) && pb.notGrounded())
+		else if (Input.GetKey(KeyCode.S) && pc.Grounded)
 		{
-			s.Execute(Player, s);
+			s.Execute(Player);
 		}
 		else if (Input.GetKey(KeyCode.D))
 		{
-			d.Execute(Player, d);
+			d.Execute(Player);
 		}
 	}
 }

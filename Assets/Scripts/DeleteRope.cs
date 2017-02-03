@@ -10,7 +10,6 @@ public class DeleteRope : MonoBehaviour
 
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     void DeleteRopes()
@@ -21,9 +20,10 @@ public class DeleteRope : MonoBehaviour
 
     private void OnCollisionExit(Collision collision)
     {
-        if (collision.rigidbody.tag == "Player")
-        {
-            DeleteRopes();
-        }
+		if(collision.rigidbody != null)
+			if (collision.rigidbody.tag == "Player")
+	        {
+	            DeleteRopes();
+	        }
     }
 }

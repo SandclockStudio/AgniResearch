@@ -111,32 +111,24 @@ public class BurnableMesh : MonoBehaviour
 
 	void PerformRaycast (Collision collision) {
 
-		// Loop through all the contact points from the collision
-			foreach (ContactPoint cp in collision.contacts) {
-				RaycastHit hit;
+		RaycastHit hit;
 
-				// Check if the normals are facing the character
-				if (Vector3.Angle(cp.normal, collision.transform.position) >= 180) {
-					m_Origin = collision.transform.position;
-					m_Direction = cp.normal - cp.point;
-				}
-				// if not, perform the raycast towards the normal
-				else {
-					m_Origin = cp.point + cp.normal;
-					m_Direction = -cp.normal;
-				}
+		m_Origin = collision.transform.position;
 
-				Debug.DrawRay(m_Origin, m_Direction, Color.green);
+		MeshFilter filter = (MeshFilter)gameObject.GetComponent<MeshFilter>();
 
+		if(filter && filter.mesh.normals.Length > 0)
+			m_Direction = -filter.transform.TransformDirection(filter.mesh.normals[0]);
 
-				if (Physics.Raycast(m_Origin, m_Direction, out hit, m_DistanceThreshold))
-	            {
-					if (hit.triangleIndex != -1 && !m_BurntTriangleIndexes.Contains(hit.triangleIndex))
-	            	{
-						AddTriangle(hit.triangleIndex, m_TriangleLifetime);
-						m_BurntTriangleIndexes.Add(hit.triangleIndex);
-	            	}
-				}
+		Debug.DrawRay(m_Origin, m_Direction, Color.green);
+
+		if (Physics.Raycast(m_Origin, m_Direction, out hit, m_DistanceThreshold)) 
+		{
+			if (hit.triangleIndex != -1 && !m_BurntTriangleIndexes.Contains(hit.triangleIndex))
+			{
+				AddTriangle(hit.triangleIndex, m_TriangleLifetime);
+				m_BurntTriangleIndexes.Add(hit.triangleIndex);
 			}
+		}
 	 }
 }

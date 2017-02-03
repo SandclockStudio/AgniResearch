@@ -6,14 +6,9 @@ using System.Collections.Generic;
 //The parent class
 public abstract class Command
 {
-	//How far should the box move when we press a button
-	protected float Speed = 0.1f;
-
 	//Move 
-	public abstract void Execute(Transform Player, Command command);
+	public abstract void Execute(GameObject Player);
 
-	//Move the box
-	public virtual void Move(Transform Player) { }
 }
 
 
@@ -24,34 +19,23 @@ public abstract class Command
 public class MoveUp : Command
 {
 	//Called when we press a key
-	public override void Execute(Transform Player, Command command)
+	public override void Execute(GameObject Player)
 	{
 		//Move the box
-		Move(Player);
+		MovementBehaviour mb = Player.GetComponent<MovementBehaviour>();
+		mb.SetDirection(Vector3.up);
 	}
-
-	//Move the box
-	public override void Move(Transform Player)
-	{
-		Player.Translate(Player.up * Speed);
-	}
-		
 }
 
 
 public class MoveDown : Command
 {
 	//Called when we press a key
-	public override void Execute(Transform Player, Command command)
+	public override void Execute(GameObject Player)
 	{
 		//Move the box
-		Move(Player);
-	}
-
-	//Move the box
-	public override void Move(Transform Player)
-	{
-		Player.Translate(-Player.up * Speed);
+		MovementBehaviour mb = Player.GetComponent<MovementBehaviour>();
+		mb.SetDirection(Vector3.down);
 	}
 }
 
@@ -59,16 +43,11 @@ public class MoveDown : Command
 public class MoveLeft : Command
 {
 	//Called when we press a key
-	public override void Execute(Transform Player, Command command)
+	public override void Execute(GameObject Player)
 	{
 		//Move the box
-		Move(Player);
-	}
-		
-	//Move the box
-	public override void Move(Transform Player)
-	{
-		Player.Translate(-Player.right * Speed);
+		MovementBehaviour mb = Player.GetComponent<MovementBehaviour>();
+		mb.SetDirection(Vector3.left);
 	}
 }
 
@@ -76,17 +55,11 @@ public class MoveLeft : Command
 public class MoveRight : Command
 {
 	//Called when we press a key
-	public override void Execute(Transform Player, Command command)
+	public override void Execute(GameObject Player)
 	{
 		//Move the box
-		Move(Player);
-
-	}
-
-	//Move the box
-	public override void Move(Transform Player)
-	{
-		Player.Translate(Player.right * Speed);
+		MovementBehaviour mb = Player.GetComponent<MovementBehaviour>();
+		mb.SetDirection(Vector3.right);
 	}
 }
 	

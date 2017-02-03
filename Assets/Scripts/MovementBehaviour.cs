@@ -29,16 +29,13 @@ public class MovementBehaviour : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-		
-		m_Rigidbody.velocity = m_Direction * m_Speed;
 
-		if (m_Randomize) {
-			m_Rigidbody.velocity += (new Vector3(Random.value / 10f, Random.value / 10f, 0f));
-		} 
 	}
 
 	public void SetDirection (Vector3 direction) {
-		m_Direction = direction;
+		
+		transform.Translate(direction*m_Speed);
+
 	}
 
 	public void SetRandomize (bool randomize) {

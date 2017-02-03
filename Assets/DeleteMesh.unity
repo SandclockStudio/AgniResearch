@@ -448,7 +448,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_TriangleLifetime: 0.7
-  m_DistanceThreshold: 1
+  m_RaycastDistanceThreshold: 1
+  m_DistanceThreshold: 0.05
 --- !u!64 &1613807342
 MeshCollider:
   m_ObjectHideFlags: 0

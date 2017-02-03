@@ -5,7 +5,8 @@ using UnityEngine;
 public class BurnableMesh : MonoBehaviour 
 {
     [SerializeField] private float m_TriangleLifetime = 0.7f;
-	[SerializeField] private float m_DistanceThreshold = 1f;
+	[SerializeField] private float m_RaycastDistanceThreshold = 20.0f;
+	[SerializeField] private float m_DistanceThreshold = 0.25f;
 
 	private bool m_Touched = false;
 
@@ -67,17 +68,29 @@ public class BurnableMesh : MonoBehaviour
 		int i = 0;
 		bool found = false;
 
-		while (i < m_MeshTriangles.Count && !found)
-		{
-			// Check if it's the triangle we want to delete
-			if (triangle.GetVertices()[0] == m_MeshTriangles[i]
-			 && triangle.GetVertices()[1] == m_MeshTriangles[i + 1]
-			 && triangle.GetVertices()[2] == m_MeshTriangles[i + 2] )
-			{
+		Vector3 avg0 = m_Mesh.vertices[triangle.GetVertices()[0]];
+		Vector3 avg1 = m_Mesh.vertices[triangle.GetVertices()[1]];
+		Vector3 avg2 = m_Mesh.vertices[triangle.GetVertices()[2]];
 
+		Vector3 average = (avg0 + avg1 + avg2) / 3;  
+
+		while (i < m_MeshTriangles.Count)
+		{
+			int nEqual = 0;
+
+			Vector3 point0 = m_Mesh.vertices[m_MeshTriangles[i]];
+			Vector3 point1 = m_Mesh.vertices[m_MeshTriangles[i + 1]];
+			Vector3 point2 = m_Mesh.vertices[m_MeshTriangles[i + 2]];
+
+			if (Vector3.Distance(point0, average) < m_DistanceThreshold) nEqual++;
+			if (Vector3.Distance(point1, average) < m_DistanceThreshold) nEqual++;
+			if (Vector3.Distance(point2, average) < m_DistanceThreshold) nEqual++;
+
+			// Check if it's the triangle we want to delete
+			if (nEqual > 1)
+			{
 				// Remove this triangle
 				m_MeshTriangles.RemoveRange(i, 3);
-				found = true;
 			}
 
 			i += 3;
@@ -122,7 +135,7 @@ public class BurnableMesh : MonoBehaviour
 
 		Debug.DrawRay(m_Origin, m_Direction, Color.green);
 
-		if (Physics.Raycast(m_Origin, m_Direction, out hit, m_DistanceThreshold)) 
+		if (Physics.Raycast(m_Origin, m_Direction, out hit, m_RaycastDistanceThreshold)) 
 		{
 			if (hit.triangleIndex != -1 && !m_BurntTriangleIndexes.Contains(hit.triangleIndex))
 			{

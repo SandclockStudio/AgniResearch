@@ -15,6 +15,8 @@ public class BurnableMesh : MonoBehaviour
 	private MeshFilter m_MeshFilter;
 	private MeshCollider m_MeshCollider;
 
+	private PlayerController m_Player;
+
 	private Mesh m_Mesh;
 	private List<int> m_MeshTriangles;
 
@@ -28,7 +30,7 @@ public class BurnableMesh : MonoBehaviour
 
 		m_Mesh = m_MeshFilter.mesh;
 		m_Mesh.MarkDynamic();
-
+		m_Player = GameObject.FindObjectOfType<PlayerController>();
 		m_MeshTriangles = new List<int>(m_Mesh.triangles);
 
 		m_BurntTriangles = new List<TimedTriangle>();
@@ -52,13 +54,19 @@ public class BurnableMesh : MonoBehaviour
 
 	void AddTriangle (int index, float time)
     {
-		int[] vertices = new int[] {
+		int[] indexes = new int[] {
 			m_MeshTriangles[(index * 3)],
 			m_MeshTriangles[(index * 3) + 1],
 			m_MeshTriangles[(index * 3) + 2]
 		};
 
-		TimedTriangle triangle = new TimedTriangle(vertices, time);
+		Vector3[] vertices = new Vector3[]{
+			m_Mesh.vertices[indexes[0]],
+			m_Mesh.vertices[indexes[1]],
+			m_Mesh.vertices[indexes[2]]
+		};
+
+		TimedTriangle triangle = new TimedTriangle(indexes, vertices, time);
 		m_BurntTriangles.Add(triangle);
     }
 
@@ -68,26 +76,22 @@ public class BurnableMesh : MonoBehaviour
 		int i = 0;
 		bool found = false;
 
-		Vector3 avg0 = m_Mesh.vertices[triangle.GetVertices()[0]];
-		Vector3 avg1 = m_Mesh.vertices[triangle.GetVertices()[1]];
-		Vector3 avg2 = m_Mesh.vertices[triangle.GetVertices()[2]];
-
-		Vector3 average = (avg0 + avg1 + avg2) / 3;  
+		Vector3 point0,point1,point2;
 
 		while (i < m_MeshTriangles.Count)
 		{
 			int nEqual = 0;
 
-			Vector3 point0 = m_Mesh.vertices[m_MeshTriangles[i]];
-			Vector3 point1 = m_Mesh.vertices[m_MeshTriangles[i + 1]];
-			Vector3 point2 = m_Mesh.vertices[m_MeshTriangles[i + 2]];
+			point0 = m_Mesh.vertices[m_MeshTriangles[i]];
+			point1 = m_Mesh.vertices[m_MeshTriangles[i + 1]];
+			point2 = m_Mesh.vertices[m_MeshTriangles[i + 2]];
 
-			if (Vector3.Distance(point0, average) < m_DistanceThreshold) nEqual++;
-			if (Vector3.Distance(point1, average) < m_DistanceThreshold) nEqual++;
-			if (Vector3.Distance(point2, average) < m_DistanceThreshold) nEqual++;
+			if (Vector3.Distance(point0,triangle.average) < m_DistanceThreshold) nEqual++;
+			if (Vector3.Distance(point1, triangle.average) < m_DistanceThreshold) nEqual++;
+			if (Vector3.Distance(point2, triangle.average) < m_DistanceThreshold) nEqual++;
 
 			// Check if it's the triangle we want to delete
-			if (nEqual > 1)
+			if (nEqual >= 1)
 			{
 				// Remove this triangle
 				m_MeshTriangles.RemoveRange(i, 3);
@@ -130,7 +134,7 @@ public class BurnableMesh : MonoBehaviour
 
 		MeshFilter filter = (MeshFilter)gameObject.GetComponent<MeshFilter>();
 
-		if(filter && filter.mesh.normals.Length > 0)
+		if (filter && filter.mesh.normals.Length > 0)
 			m_Direction = -filter.transform.TransformDirection(filter.mesh.normals[0]);
 
 		Debug.DrawRay(m_Origin, m_Direction, Color.green);
@@ -142,6 +146,12 @@ public class BurnableMesh : MonoBehaviour
 				AddTriangle(hit.triangleIndex, m_TriangleLifetime);
 				m_BurntTriangleIndexes.Add(hit.triangleIndex);
 			}
+
+			m_Player.wall = true;
+		}
+		else
+		{
+			m_Player.wall = false;
 		}
 	 }
 }

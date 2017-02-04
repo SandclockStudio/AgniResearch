@@ -49,11 +49,10 @@ public class BurnableMesh : MonoBehaviour
 
 	void Update ()
 	{
-
-        if (m_Mesh.triangles.Length < 31) Destroy(this.gameObject);
-
 		if (m_Touched && m_UpdateCount%2 == 0) 
 		{ 
+			if (m_Mesh.triangles.Length < 40) Destroy(this.gameObject);
+
 			for (int i = m_BurntTriangles.Count - 1; i >= 0; i--)
 			{
 				m_BurntTriangles[i].Update();

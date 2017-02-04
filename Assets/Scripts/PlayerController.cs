@@ -70,13 +70,19 @@ public class PlayerController : MonoBehaviour
 
 		// m_Movement.UseGravity = true;
 
-		Debug.DrawRay(transform.position, Vector3.down * m_MinJumpDistance, Color.red);
+	
+
 
 		if (Physics.Raycast(transform.position, Vector3.down, out hit, m_MinJumpDistance )) 
 		{
 			m_Movement.isJumping = false;
 		}
-	
+
+		if(!m_Movement.beingInputed && wall)
+		{
+			m_Movement.SetDirection(Vector3.up,0.2f);
+		}
+
     }
 		
 

@@ -23,7 +23,7 @@ public class MoveUp : Command
 	{
 		//Move the box
 		MovementBehaviour mb = Player.GetComponent<MovementBehaviour>();
-		mb.SetDirection(Vector3.up);
+		mb.SetDirection(Vector3.up,1);
 	}
 }
 
@@ -35,7 +35,7 @@ public class MoveDown : Command
 	{
 		//Move the box
 		MovementBehaviour mb = Player.GetComponent<MovementBehaviour>();
-		mb.SetDirection(Vector3.down);
+		mb.SetDirection(Vector3.down,1);
 	}
 }
 
@@ -47,7 +47,7 @@ public class MoveLeft : Command
 	{
 		//Move the box
 		MovementBehaviour mb = Player.GetComponent<MovementBehaviour>();
-		mb.SetDirection(Vector3.left);
+		mb.SetDirection(Vector3.left,1);
 	}
 }
 
@@ -59,7 +59,7 @@ public class MoveRight : Command
 	{
 		//Move the box
 		MovementBehaviour mb = Player.GetComponent<MovementBehaviour>();
-		mb.SetDirection(Vector3.right);
+		mb.SetDirection(Vector3.right,1);
 	}
 }
 

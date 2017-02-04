@@ -65,7 +65,7 @@ public class SparksBehaviour : MonoBehaviour {
 
 			MovementBehaviour mb = spark.GetComponent<MovementBehaviour>();
 			mb.SetRandomize(true);
-			mb.SetDirection(new Vector3(x, y, 0));
+			mb.SetDirection(new Vector3(x, y, 0),1);
 
 			spark.SetActive(true);
 			sparks.RemoveAt(index);

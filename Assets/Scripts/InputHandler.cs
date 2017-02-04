@@ -13,6 +13,7 @@ public class InputHandler : MonoBehaviour
 
 	GameObject Player;
 	PlayerController pc;
+	MovementBehaviour mb;
 
 	void Start()
 	{
@@ -24,6 +25,7 @@ public class InputHandler : MonoBehaviour
 		space =  new Jump();
 		Player = GameObject.FindWithTag("Player");
 		pc = Player.GetComponent<PlayerController>();
+		mb = Player.GetComponent<MovementBehaviour>();
 	}
 
 
@@ -56,6 +58,10 @@ public class InputHandler : MonoBehaviour
 		else if (Input.GetKeyDown(KeyCode.Space))
 		{
 			space.Execute(Player);
+		}
+		else 
+		{
+			mb.beingInputed = false;
 		}
 	}
 }

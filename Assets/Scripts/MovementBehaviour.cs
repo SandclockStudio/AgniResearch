@@ -11,6 +11,8 @@ public class MovementBehaviour : MonoBehaviour {
 
 	public bool isJumping;
 
+	public bool beingInputed;
+
 	public bool UseGravity 
 	{
 		get 
@@ -38,10 +40,11 @@ public class MovementBehaviour : MonoBehaviour {
 	// Update is called once per frame
 
 
-	public void SetDirection (Vector3 direction) 
+	public void SetDirection (Vector3 direction, float speedModifier) 
 	{
 		
-		transform.Translate(direction * m_Speed);
+		transform.Translate(direction * m_Speed * speedModifier);
+		beingInputed = true;
 
 	}
 
@@ -52,6 +55,7 @@ public class MovementBehaviour : MonoBehaviour {
 			isJumping = true;
 			m_Rigidbody.AddForce(Vector3.up * m_JumpForce);
 		}
+		beingInputed = true;
 	}
 
 	public void SetRandomize (bool randomize) {

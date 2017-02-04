@@ -30,3 +30,5 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
+
+Assets/Textures/noise1.png.meta

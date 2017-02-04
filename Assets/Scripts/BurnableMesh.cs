@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class BurnableMesh : MonoBehaviour 
 {
@@ -39,11 +40,14 @@ public class BurnableMesh : MonoBehaviour
 
 	void Update ()
 	{
-		if (m_Touched) {
+		if (m_Touched) { 
 			for (int i = m_BurntTriangles.Count - 1; i >= 0; i--)
 			{
 				m_BurntTriangles[i].Update();
-			
+
+				m_BurntTriangles = m_BurntTriangles.OrderBy(x => x.m_Lifetime).ToList();
+
+
 			    if (m_BurntTriangles[i].MarkedForDeletion) {
 					DestroyTriangle(m_BurntTriangles[i]);
 			    	m_BurntTriangles.RemoveAt(i);
@@ -74,24 +78,19 @@ public class BurnableMesh : MonoBehaviour
 	void DestroyTriangle (TimedTriangle triangle)
 	{
 		int i = 0;
-		bool found = false;
 
 		Vector3 point0,point1,point2;
 
 		while (i < m_MeshTriangles.Count)
 		{
-			int nEqual = 0;
-
 			point0 = m_Mesh.vertices[m_MeshTriangles[i]];
 			point1 = m_Mesh.vertices[m_MeshTriangles[i + 1]];
 			point2 = m_Mesh.vertices[m_MeshTriangles[i + 2]];
 
-			if (Vector3.Distance(point0,triangle.average) < m_DistanceThreshold) nEqual++;
-			if (Vector3.Distance(point1, triangle.average) < m_DistanceThreshold) nEqual++;
-			if (Vector3.Distance(point2, triangle.average) < m_DistanceThreshold) nEqual++;
-
-			// Check if it's the triangle we want to delete
-			if (nEqual >= 1)
+			// Check if it's the triangle we want to delete and her average distance triangles
+			if (Vector3.Distance(point0,triangle.average) < m_DistanceThreshold
+				|| Vector3.Distance(point1, triangle.average) < m_DistanceThreshold
+				|| Vector3.Distance(point2, triangle.average) < m_DistanceThreshold)
 			{
 				// Remove this triangle
 				m_MeshTriangles.RemoveRange(i, 3);
@@ -101,11 +100,6 @@ public class BurnableMesh : MonoBehaviour
 		}
 
 		m_Mesh.triangles = m_MeshTriangles.ToArray();
-		m_Mesh.RecalculateBounds();
-		m_Mesh.UploadMeshData(false);
-
-		m_MeshFilter.mesh = m_Mesh;
-
 		m_MeshCollider.sharedMesh = m_Mesh;
     }
 

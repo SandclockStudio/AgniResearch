@@ -8,7 +8,7 @@ public class TimedTriangle
 
 	private Vector3[] m_Vertices;
 
-	private float m_Lifetime;
+	public float m_Lifetime;
 
 	public Vector3 average;
 

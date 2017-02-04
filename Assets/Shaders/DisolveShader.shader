@@ -71,14 +71,14 @@ Shader "Custom1/DisolveShader"
 
 
 
-				fixed toPoint = (length(i.oPos.xyz - i.hitPos.xyz) / ((1 - _DissolveValue) * 2.0f));
+				fixed toPoint = (length(i.oPos.xyz - i.hitPos.xyz) / ((1.0f - _DissolveValue) * 2.0f));
 				fixed d = ((2.0 * _DissolveValue + noiseVal) * toPoint * noiseVal) - 1.0;
 
 				fixed overOne = saturate(d * _GradientAdjust);
 
 				fixed4 burn = tex2D(_BurnGradient, float2(overOne, 0.5));
 				return mainTex * burn;
-
+				//shaders rules
 			}
 			ENDCG
 		}

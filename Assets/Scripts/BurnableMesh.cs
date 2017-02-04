@@ -43,14 +43,14 @@ public class BurnableMesh : MonoBehaviour
 		m_BurntTriangleIndexes = new List<int>();
 		m_MeshDeletionCount = 0;
 		m_UpdateCount = 0;
-
-        dissolveMaterial  = GetComponent<Renderer>().material;
+        //shaders rules
+        dissolveMaterial = GetComponent<Renderer>().material; 
     }
 
 	void Update ()
 	{
 
-        if (m_Mesh.triangles.Length < 30) Destroy(this.gameObject);
+        if (m_Mesh.triangles.Length < 31) Destroy(this.gameObject);
 
 		if (m_Touched && m_UpdateCount%2 == 0) 
 		{ 
@@ -60,7 +60,7 @@ public class BurnableMesh : MonoBehaviour
 
 				m_BurntTriangles = m_BurntTriangles.OrderBy(x => x.m_Lifetime).ToList();
 
-               value = Mathf.Max(0.8f, value - Time.deltaTime * timeScale);
+                value = Mathf.Max(0.8f, value - Time.deltaTime * timeScale);
                 dissolveMaterial.SetFloat("_DissolveValue", value);
 
                 if (m_BurntTriangles[i].MarkedForDeletion && m_MeshDeletionCount <= 1 ) 

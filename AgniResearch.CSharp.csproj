@@ -85,22 +85,26 @@
     <Compile Include="Assets\Scripts\BurnableMesh.cs" />
     <Compile Include="Assets\Scripts\Command.cs" />
     <Compile Include="Assets\Scripts\DeleteRope.cs" />
+    <Compile Include="Assets\Scripts\DisolveEffect.cs" />
     <Compile Include="Assets\Scripts\InputHandler.cs" />
     <Compile Include="Assets\Scripts\MovementBehaviour.cs" />
-    <Compile Include="Assets\Scripts\MyTriangle.cs" />
-    <Compile Include="Assets\Scripts\PlayerBehavior.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
     <Compile Include="Assets\Scripts\PlayerMovementBehaviour.cs" />
     <Compile Include="Assets\Scripts\ShaderAnimationBehaviour.cs" />
+    <Compile Include="Assets\Scripts\ShowNormals.cs" />
     <Compile Include="Assets\Scripts\SparkController.cs" />
     <Compile Include="Assets\Scripts\SparksBehaviour.cs" />
     <Compile Include="Assets\Scripts\TimedTriangle.cs" />
     <Compile Include="Assets\Scripts\TriggerCameraRotation.cs" />
-    <Compile Include="Assets\Scripts\deleteTriangles.cs" />
+    <Compile Include="Assets\Scripts\TriggerDisolveOnClick.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Shaders\Agni-Additive.shader" />
+    <None Include="Assets\Shaders\Awesome.shader" />
+    <None Include="Assets\Shaders\Burn.shader" />
+    <None Include="Assets\Shaders\DisolveShader.shader" />
     <None Include="Assets\Shaders\Smoke-Multiply.shader" />
+    <None Include="Assets\Shaders\Test.shader" />
     <None Include="Assets\Standard Assets\Cameras\CameraGuidelines.txt" />
     <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
     <None Include="Assets\Standard Assets\Effects\ToonShading\Shaders\ToonBasic.shader" />

@@ -94,14 +94,16 @@ public class PlayerController : MonoBehaviour
 	{
 		if (collision.gameObject.CompareTag("Rope"))
 		{
-			Vector3 distance = new Vector3((collision.rigidbody.transform.position.x - transform.position.x), (collision.rigidbody.transform.position.y - transform.position.y), (collision.rigidbody.transform.position.z - transform.position.z));
+			
 			Vector3 newPos;
-            transform.rotation = collision.rigidbody.rotation;
-			newPos = new Vector3(distance.x -(transform.localScale.x/2), 0.007f, distance.z - (transform.localScale.z/2));
+            transform.rotation = originalRotation* Quaternion.AngleAxis(collision.rigidbody.rotation.eulerAngles.z, Vector3.forward);
+            Vector3 distance = new Vector3((collision.rigidbody.transform.position.x - transform.position.x), (collision.rigidbody.transform.position.y - transform.position.y), (collision.rigidbody.transform.position.z - transform.position.z));
+            newPos = new Vector3(Mathf.Abs(distance.x) -(transform.localScale.x/2), 0.007f, Mathf.Abs(distance.z) - (transform.localScale.z/2));
 			transform.position += newPos;
 			rope = true;
             m_Movement.UseGravity = false;
         }
+        m_Movement.UseGravity = false;
     }
 		
     private void OnCollisionExit (Collision collision)
@@ -112,7 +114,7 @@ public class PlayerController : MonoBehaviour
             rope = false;
             m_Movement.UseGravity = true;
         }
-
+        m_Movement.UseGravity = true;
     }
 
 }

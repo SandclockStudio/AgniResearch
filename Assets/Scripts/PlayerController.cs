@@ -103,7 +103,11 @@ public class PlayerController : MonoBehaviour
 			rope = true;
             m_Movement.UseGravity = false;
         }
-        m_Movement.UseGravity = false;
+		else
+		{
+			transform.rotation = originalRotation;
+			m_Movement.UseGravity = !Grounded;
+		}
     }
 		
     private void OnCollisinExit (Collision collision)
@@ -114,8 +118,11 @@ public class PlayerController : MonoBehaviour
             rope = false;
             m_Movement.UseGravity = true;
         }
-        transform.rotation = originalRotation;
-        m_Movement.UseGravity = true;
+		else
+		{
+    	    transform.rotation = originalRotation;
+			m_Movement.UseGravity = !Grounded;
+		}
     }
 
 }

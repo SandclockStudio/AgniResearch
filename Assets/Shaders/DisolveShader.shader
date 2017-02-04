@@ -71,7 +71,7 @@ Shader "Custom1/DisolveShader"
 
 
 
-				fixed toPoint = (length(i.oPos.xyz - i.hitPos.xyz) / ((1.0001 - _DissolveValue) * _LargestVal));
+				fixed toPoint = (length(i.oPos.xyz - i.hitPos.xyz) / ((1 - _DissolveValue) * 2.0f));
 				fixed d = ((2.0 * _DissolveValue + noiseVal) * toPoint * noiseVal) - 1.0;
 
 				fixed overOne = saturate(d * _GradientAdjust);

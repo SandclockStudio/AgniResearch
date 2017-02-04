@@ -1,0 +1,223 @@
+fileFormatVersion: 2
+guid: 9d559d3f80c7e422e86ca70925cbf685
+timeCreated: 1486232724
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: BuildingA
+    100004: BuildingB
+    100006: BuildingC
+    100008: BusStop
+    100010: CardBoardBox
+    100012: CardBoardPlane(2500Polys)
+    100014: CardBoardPlane(400Polys)
+    100016: Cerilla
+    100018: CerillaBall
+    100020: Cylinder050
+    100022: Cylinder052
+    100024: Cylinder053
+    100026: Enemy
+    100028: Fountain
+    100030: MetalCube
+    100032: MetalFloorTable
+    100034: Object005
+    100036: PaperBox
+    100038: PaperPlane(2500Polys)
+    100040: PaperPlane(400Polys)
+    100042: PieceOfRope
+    100044: SideWalk_DarkWood
+    100046: SideWalk_Metal
+    100048: SideWalk_Stone
+    100050: Sphere007
+    100052: Sphere008
+    100054: 'Stairs '
+    100056: Streetlight
+    100058: WaterPlane
+    400000: //RootNode
+    400002: BuildingA
+    400004: BuildingB
+    400006: BuildingC
+    400008: BusStop
+    400010: CardBoardBox
+    400012: CardBoardPlane(2500Polys)
+    400014: CardBoardPlane(400Polys)
+    400016: Cerilla
+    400018: CerillaBall
+    400020: Cylinder050
+    400022: Cylinder052
+    400024: Cylinder053
+    400026: Enemy
+    400028: Fountain
+    400030: MetalCube
+    400032: MetalFloorTable
+    400034: Object005
+    400036: PaperBox
+    400038: PaperPlane(2500Polys)
+    400040: PaperPlane(400Polys)
+    400042: PieceOfRope
+    400044: SideWalk_DarkWood
+    400046: SideWalk_Metal
+    400048: SideWalk_Stone
+    400050: Sphere007
+    400052: Sphere008
+    400054: 'Stairs '
+    400056: Streetlight
+    400058: WaterPlane
+    2300000: BuildingA
+    2300002: BuildingB
+    2300004: BuildingC
+    2300006: BusStop
+    2300008: CardBoardBox
+    2300010: CardBoardPlane(2500Polys)
+    2300012: CardBoardPlane(400Polys)
+    2300014: Cerilla
+    2300016: CerillaBall
+    2300018: Cylinder050
+    2300020: Cylinder052
+    2300022: Cylinder053
+    2300024: Enemy
+    2300026: Fountain
+    2300028: MetalCube
+    2300030: MetalFloorTable
+    2300032: Object005
+    2300034: PaperBox
+    2300036: PaperPlane(2500Polys)
+    2300038: PaperPlane(400Polys)
+    2300040: PieceOfRope
+    2300042: SideWalk_DarkWood
+    2300044: SideWalk_Metal
+    2300046: SideWalk_Stone
+    2300048: Sphere007
+    2300050: Sphere008
+    2300052: 'Stairs '
+    2300054: Streetlight
+    2300056: WaterPlane
+    3300000: BuildingA
+    3300002: BuildingB
+    3300004: BuildingC
+    3300006: BusStop
+    3300008: CardBoardBox
+    3300010: CardBoardPlane(2500Polys)
+    3300012: CardBoardPlane(400Polys)
+    3300014: Cerilla
+    3300016: CerillaBall
+    3300018: Cylinder050
+    3300020: Cylinder052
+    3300022: Cylinder053
+    3300024: Enemy
+    3300026: Fountain
+    3300028: MetalCube
+    3300030: MetalFloorTable
+    3300032: Object005
+    3300034: PaperBox
+    3300036: PaperPlane(2500Polys)
+    3300038: PaperPlane(400Polys)
+    3300040: PieceOfRope
+    3300042: SideWalk_DarkWood
+    3300044: SideWalk_Metal
+    3300046: SideWalk_Stone
+    3300048: Sphere007
+    3300050: Sphere008
+    3300052: 'Stairs '
+    3300054: Streetlight
+    3300056: WaterPlane
+    4300000: 'Stairs '
+    4300002: BuildingC
+    4300004: Streetlight
+    4300006: Sphere007
+    4300008: Cylinder050
+    4300010: BuildingB
+    4300012: BusStop
+    4300014: Fountain
+    4300016: Cylinder052
+    4300018: Cylinder053
+    4300020: Sphere008
+    4300022: Enemy
+    4300024: BuildingA
+    4300026: Object005
+    4300028: SideWalk_DarkWood
+    4300030: SideWalk_Stone
+    4300032: SideWalk_Metal
+    4300034: MetalFloorTable
+    4300036: CardBoardPlane(400Polys)
+    4300038: CardBoardPlane(2500Polys)
+    4300040: PaperPlane(2500Polys)
+    4300042: PaperPlane(400Polys)
+    4300044: WaterPlane
+    4300046: PaperBox
+    4300048: CardBoardBox
+    4300050: MetalCube
+    4300052: PieceOfRope
+    4300054: Cerilla
+    4300056: CerillaBall
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

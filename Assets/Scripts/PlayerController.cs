@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
 
 	private Transform m_Fire;
 
+    private Quaternion originalRotation;
 	private float m_FuelAmount = 1;
 
 	public float FuelAmount {
@@ -41,7 +42,8 @@ public class PlayerController : MonoBehaviour
 
     void Start ()
     {
-		m_Movement = GetComponent<MovementBehaviour>();
+        originalRotation = transform.rotation;
+        m_Movement = GetComponent<MovementBehaviour>();
 		//m_Movement = GetComponent<PlayerMovementBehaviour>();
     	m_Sparks = GetComponent<SparksBehaviour>();
     	m_Fire = transform.FindChild("Fire");
@@ -94,24 +96,23 @@ public class PlayerController : MonoBehaviour
 		{
 			Vector3 distance = new Vector3((collision.rigidbody.transform.position.x - transform.position.x), (collision.rigidbody.transform.position.y - transform.position.y), (collision.rigidbody.transform.position.z - transform.position.z));
 			Vector3 newPos;
-			Vector3 deg = transform.rotation.eulerAngles;
+            transform.rotation = collision.rigidbody.rotation;
 			newPos = new Vector3(distance.x -(transform.localScale.x/2), 0.007f, distance.z - (transform.localScale.z/2));
 			transform.position += newPos;
 			rope = true;
-
-		}
-
-		m_Movement.UseGravity = !Grounded;
-	}
+            m_Movement.UseGravity = false;
+        }
+    }
 		
     private void OnCollisionExit (Collision collision)
     {
         if (collision.gameObject.CompareTag("Rope"))
         {
+            transform.rotation = originalRotation;
             rope = false;
+            m_Movement.UseGravity = true;
         }
 
-		m_Movement.UseGravity = !Grounded;
     }
 
 }

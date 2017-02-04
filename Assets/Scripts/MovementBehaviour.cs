@@ -9,6 +9,8 @@ public class MovementBehaviour : MonoBehaviour {
 
 	private Vector3 m_Direction;
 
+	public bool isJumping;
+
 	public bool UseGravity 
 	{
 		get 
@@ -34,10 +36,7 @@ public class MovementBehaviour : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void FixedUpdate () 
-	{
 
-	}
 
 	public void SetDirection (Vector3 direction) 
 	{
@@ -48,7 +47,11 @@ public class MovementBehaviour : MonoBehaviour {
 
 	public void Jump () 
 	{
-		m_Rigidbody.AddForce(Vector3.up * m_JumpForce);
+		if(!isJumping)
+		{
+			isJumping = true;
+			m_Rigidbody.AddForce(Vector3.up * m_JumpForce);
+		}
 	}
 
 	public void SetRandomize (bool randomize) {

@@ -53,7 +53,7 @@ public class InputHandler : MonoBehaviour
 		{
 			d.Execute(Player);
 		}
-		else if (Input.GetKey(KeyCode.Space))
+		else if (Input.GetKeyDown(KeyCode.Space))
 		{
 			space.Execute(Player);
 		}

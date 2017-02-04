@@ -13,7 +13,9 @@ public class PlayerController : MonoBehaviour
 
     private Quaternion originalRotation;
 	private float m_FuelAmount = 1;
+	[SerializeField] private float m_MinJumpDistance = 0.3f;
 
+	private RaycastHit hit;
 	public float FuelAmount {
 		get {
 			return m_FuelAmount;
@@ -44,17 +46,12 @@ public class PlayerController : MonoBehaviour
     {
         originalRotation = transform.rotation;
         m_Movement = GetComponent<MovementBehaviour>();
-		//m_Movement = GetComponent<PlayerMovementBehaviour>();
     	m_Sparks = GetComponent<SparksBehaviour>();
     	m_Fire = transform.FindChild("Fire");
     }
 	
     void Update ()
     {
-		/*
-    	float x = Input.GetAxis("Horizontal");
-		float y = Input.GetAxis("Vertical");
-		*/
 		float aim = Input.GetAxis("Aim");
 
 		Vector3 direction = Vector3.zero;
@@ -68,25 +65,18 @@ public class PlayerController : MonoBehaviour
 
            // m_Sparks.Throw();
         }
-			
-		/*
-		if (Mathf.Abs(x) > 0)
-		{
-			direction += transform.TransformDirection(Vector3.forward * x);
-			//direction += Vector3.forward * x;
-        }
-
-		if (Mathf.Abs(y) > 0 && Grounded)
-		{
-			direction += transform.TransformDirection(Vector3.up * y);
-			//direction += Vector3.up * y;
-        }
-        */
 
         FuelAmount -= 0.0005f;
+
 		// m_Movement.UseGravity = true;
 
-       // m_Movement.SetDirection(direction);
+		Debug.DrawRay(transform.position, Vector3.down * m_MinJumpDistance, Color.red);
+
+		if (Physics.Raycast(transform.position, Vector3.down, out hit, m_MinJumpDistance )) 
+		{
+			m_Movement.isJumping = false;
+		}
+	
     }
 		
 

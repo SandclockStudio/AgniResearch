@@ -136,6 +136,7 @@ public class BurnableMesh : MonoBehaviour
 		if (collision.gameObject.CompareTag("Player"))
 		{
 			m_Touched = true;
+			collision.rigidbody.velocity = Vector3.zero;
 		}
 	}
 

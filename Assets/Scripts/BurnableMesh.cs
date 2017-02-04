@@ -25,6 +25,10 @@ public class BurnableMesh : MonoBehaviour
 	private List<TimedTriangle> m_BurntTriangles;
 	private List<int> m_BurntTriangleIndexes;
 
+    private Material dissolveMaterial = null;
+    private float timeScale = 0.6f;
+    private float value = 1.0f;
+
     private void Start ()
     {
         m_MeshFilter = GetComponent<MeshFilter>();
@@ -39,10 +43,15 @@ public class BurnableMesh : MonoBehaviour
 		m_BurntTriangleIndexes = new List<int>();
 		m_MeshDeletionCount = 0;
 		m_UpdateCount = 0;
+
+        dissolveMaterial  = GetComponent<Renderer>().material;
     }
 
 	void Update ()
 	{
+
+        if (m_Mesh.triangles.Length < 30) Destroy(this.gameObject);
+
 		if (m_Touched && m_UpdateCount%2 == 0) 
 		{ 
 			for (int i = m_BurntTriangles.Count - 1; i >= 0; i--)
@@ -51,10 +60,15 @@ public class BurnableMesh : MonoBehaviour
 
 				m_BurntTriangles = m_BurntTriangles.OrderBy(x => x.m_Lifetime).ToList();
 
+               value = Mathf.Max(0.8f, value - Time.deltaTime * timeScale);
+                dissolveMaterial.SetFloat("_DissolveValue", value);
 
-				if (m_BurntTriangles[i].MarkedForDeletion && m_MeshDeletionCount <= 1 ) 
+                if (m_BurntTriangles[i].MarkedForDeletion && m_MeshDeletionCount <= 1 ) 
 				{
-					DestroyTriangle(m_BurntTriangles[i]);
+
+
+
+                    DestroyTriangle(m_BurntTriangles[i]);
 			    	m_BurntTriangles.RemoveAt(i);
 					m_MeshDeletionCount++;
 			    }
@@ -149,7 +163,8 @@ public class BurnableMesh : MonoBehaviour
 			{
 				AddTriangle(hit.triangleIndex, m_TriangleLifetime);
 				m_BurntTriangleIndexes.Add(hit.triangleIndex);
-			}
+                dissolveMaterial.SetVector("_HitPos", (new Vector4(m_Origin.x, m_Origin.y, m_Origin.z, 1.0f)));
+            }
 
 			m_Player.wall = true;
 		}

@@ -64,9 +64,6 @@ public class BurnableMesh : MonoBehaviour
 
                 if (m_BurntTriangles[i].MarkedForDeletion && m_MeshDeletionCount <= 1 ) 
 				{
-
-
-
                     DestroyTriangle(m_BurntTriangles[i]);
 			    	m_BurntTriangles.RemoveAt(i);
 					m_MeshDeletionCount++;
@@ -147,7 +144,8 @@ public class BurnableMesh : MonoBehaviour
 		}
 	}
 
-	void PerformRaycast (Collision collision) {
+	void PerformRaycast (Collision collision) 
+	{
 
 		RaycastHit hit;
 

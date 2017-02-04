@@ -12,7 +12,6 @@ public class TimedTriangle
 
 	public Vector3 average;
 
-
 	public bool MarkedForDeletion {
 		get {
 			return m_Lifetime <= 0;
@@ -48,5 +47,6 @@ public class TimedTriangle
 	{
 		return m_Vertices;
 	}
+		
 
 }

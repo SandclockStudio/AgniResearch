@@ -16,6 +16,7 @@ public class BurnableMesh : MonoBehaviour
 	private MeshFilter m_MeshFilter;
 	private MeshCollider m_MeshCollider;
 
+	private float m_MeshDeletionCount,m_UpdateCount;
 	private PlayerController m_Player;
 
 	private Mesh m_Mesh;
@@ -36,11 +37,14 @@ public class BurnableMesh : MonoBehaviour
 
 		m_BurntTriangles = new List<TimedTriangle>();
 		m_BurntTriangleIndexes = new List<int>();
+		m_MeshDeletionCount = 0;
+		m_UpdateCount = 0;
     }
 
 	void Update ()
 	{
-		if (m_Touched) { 
+		if (m_Touched && m_UpdateCount%2 == 0) 
+		{ 
 			for (int i = m_BurntTriangles.Count - 1; i >= 0; i--)
 			{
 				m_BurntTriangles[i].Update();
@@ -48,12 +52,18 @@ public class BurnableMesh : MonoBehaviour
 				m_BurntTriangles = m_BurntTriangles.OrderBy(x => x.m_Lifetime).ToList();
 
 
-			    if (m_BurntTriangles[i].MarkedForDeletion) {
+				if (m_BurntTriangles[i].MarkedForDeletion && m_MeshDeletionCount <= 1 ) 
+				{
 					DestroyTriangle(m_BurntTriangles[i]);
 			    	m_BurntTriangles.RemoveAt(i);
+					m_MeshDeletionCount++;
 			    }
 			}
 		}
+		else
+			m_UpdateCount++;
+		
+		m_MeshDeletionCount = 0;
 	}
 
 	void AddTriangle (int index, float time)

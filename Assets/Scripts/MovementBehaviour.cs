@@ -9,33 +9,46 @@ public class MovementBehaviour : MonoBehaviour {
 
 	private Vector3 m_Direction;
 
-	public bool UseGravity {
-		get {
+	public bool UseGravity 
+	{
+		get 
+		{
 			return m_Rigidbody.useGravity;
 		}
-		set {
+		set 
+		{
 			m_Rigidbody.useGravity = value;
 		}
 	}
 
 	[SerializeField] private float m_Speed = 10;
+	[SerializeField] private float m_JumpForce = 100;
+
 
 	[SerializeField] private bool m_Randomize = false;
 
 	// Use this for initialization
-	void Start () {
+	void Start () 
+	{
 		m_Rigidbody = GetComponentInChildren<Rigidbody>();
 	}
 	
 	// Update is called once per frame
-	void FixedUpdate () {
+	void FixedUpdate () 
+	{
 
 	}
 
-	public void SetDirection (Vector3 direction) {
+	public void SetDirection (Vector3 direction) 
+	{
 		
-		transform.Translate(direction*m_Speed);
+		transform.Translate(direction * m_Speed);
 
+	}
+
+	public void Jump () 
+	{
+		m_Rigidbody.AddForce(Vector3.up * m_JumpForce);
 	}
 
 	public void SetRandomize (bool randomize) {

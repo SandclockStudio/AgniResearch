@@ -7,7 +7,7 @@ public class InputHandler : MonoBehaviour
 {
 
 	//The different keys we need
-	private Command w, a, s, d;
+	private Command w, a, s, d,space;
 	//Stores all commands for replay and undo
 	public static List<Command> oldCommands = new List<Command>();
 
@@ -21,6 +21,7 @@ public class InputHandler : MonoBehaviour
 		a = new MoveLeft();
 		s = new MoveDown();
 		d = new MoveRight();
+		space =  new Jump();
 		Player = GameObject.FindWithTag("Player");
 		pc = Player.GetComponent<PlayerController>();
 	}
@@ -51,6 +52,10 @@ public class InputHandler : MonoBehaviour
 		else if (Input.GetKey(KeyCode.D))
 		{
 			d.Execute(Player);
+		}
+		else if (Input.GetKey(KeyCode.Space))
+		{
+			space.Execute(Player);
 		}
 	}
 }

@@ -61,12 +61,12 @@ public class PlayerController : MonoBehaviour
 
 	    if (Mathf.Abs(aim) > 0)
 	    {
-        	m_Sparks.Aim(aim);
+        	//m_Sparks.Aim(aim);
         }
 		if (Input.GetButtonDown("Sparks"))
 		{
 
-            m_Sparks.Throw();
+           // m_Sparks.Throw();
         }
 			
 		/*

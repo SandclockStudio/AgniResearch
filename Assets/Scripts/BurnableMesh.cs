@@ -82,21 +82,24 @@ public class BurnableMesh : MonoBehaviour
 
 	void AddTriangle (int index, float time)
     {
-		int[] indexes = new int[] {
-			m_MeshTriangles[(index * 3)],
-			m_MeshTriangles[(index * 3) + 1],
-			m_MeshTriangles[(index * 3) + 2]
-		};
+		if (index * 3 + 2 <= m_MeshTriangles.Count) {
 
-		Vector3[] vertices = new Vector3[]{
-			m_Mesh.vertices[indexes[0]],
-			m_Mesh.vertices[indexes[1]],
-			m_Mesh.vertices[indexes[2]]
-		};
+			int[] indexes = new int[] {
+				m_MeshTriangles[(index * 3)],
+				m_MeshTriangles[(index * 3) + 1],
+				m_MeshTriangles[(index * 3) + 2]
+			};
 
-		TimedTriangle triangle = new TimedTriangle(indexes, vertices, time);
-		m_BurntTriangles.Add(triangle);
-    }
+			Vector3[] vertices = new Vector3[]{
+				m_Mesh.vertices[indexes[0]],
+				m_Mesh.vertices[indexes[1]],
+				m_Mesh.vertices[indexes[2]]
+			};
+
+			TimedTriangle triangle = new TimedTriangle(indexes, vertices, time);
+			m_BurntTriangles.Add(triangle);
+    	}
+	}
 
 
 	void DestroyTriangle (TimedTriangle triangle)

@@ -62,6 +62,17 @@ public class MoveRight : Command
 		mb.SetDirection(Vector3.right);
 	}
 }
-	
+
+
+public class Jump : Command
+{
+	//Called when we press a key
+	public override void Execute(GameObject Player)
+	{
+		//Move the box
+		MovementBehaviour mb = Player.GetComponent<MovementBehaviour>();
+		mb.Jump();
+	}
+}
 	
 

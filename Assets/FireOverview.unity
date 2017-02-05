@@ -648,10 +648,10 @@ Light:
   m_Enabled: 1
   serializedVersion: 7
   m_Type: 0
-  m_Color: {r: 0.403, g: 0.234, b: 0.534, a: 1}
+  m_Color: {r: 0.680744, g: 0.522, b: 0.8235294, a: 1}
   m_Intensity: 0.63
   m_Range: 25
-  m_SpotAngle: 21
+  m_SpotAngle: 117.3
   m_CookieSize: 10
   m_Shadows:
     m_Type: 2
@@ -712,7 +712,7 @@ Light:
   serializedVersion: 7
   m_Type: 2
   m_Color: {r: 1, g: 0.97297657, b: 0.625, a: 1}
-  m_Intensity: 0.6
+  m_Intensity: 0.3
   m_Range: 7.55
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -1743,6 +1743,69 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: -90.23499, y: 0, z: 0}
+--- !u!1 &1697903047
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1697903049}
+  - component: {fileID: 1697903048}
+  m_Layer: 0
+  m_Name: Spotlight (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!108 &1697903048
+Light:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1697903047}
+  m_Enabled: 1
+  serializedVersion: 7
+  m_Type: 0
+  m_Color: {r: 1, g: 1, b: 0.728, a: 1}
+  m_Intensity: 1
+  m_Range: 0.65
+  m_SpotAngle: 95.52
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 0
+    m_Resolution: -1
+    m_CustomResolution: -1
+    m_Strength: 1
+    m_Bias: 0.05
+    m_NormalBias: 0.4
+    m_NearPlane: 0.2
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_Lightmapping: 4
+  m_AreaSize: {x: 1, y: 1}
+  m_BounceIntensity: 1
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
+--- !u!4 &1697903049
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1697903047}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: -0.83, y: 0.203, z: -10.002}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 21
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!1 &1744699959
 GameObject:
   m_ObjectHideFlags: 0

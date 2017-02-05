@@ -10,7 +10,6 @@ public class PlayerController : MonoBehaviour
 {
 
 	private Transform m_Fire;
-
     private Quaternion originalRotation;
 	private float m_FuelAmount = 1;
 	[SerializeField] private float m_MinJumpDistance = 0.3f;
@@ -84,21 +83,31 @@ public class PlayerController : MonoBehaviour
 		}
 
     }
-		
+
+	private void OnCollisionEnter (Collision collision)
+	{
+		//gameObject.GetComponent<Rigidbody> ().velocity = Vector3.zero;
+	}
 
 	private void OnCollisionStay (Collision collision)
 	{
 		if (collision.gameObject.CompareTag("Rope"))
 		{
-			
-			Vector3 newPos;
-            transform.rotation = originalRotation * Quaternion.AngleAxis(collision.rigidbody.rotation.eulerAngles.z, Vector3.forward);
-            Vector3 distance = new Vector3((collision.rigidbody.transform.position.x - transform.localPosition.x), (collision.rigidbody.transform.position.y - transform.localPosition.y), (collision.rigidbody.transform.position.z - transform.localPosition.z));
-            newPos = new Vector3((distance.x) - (transform.localScale.x / 2), 0, (distance.z) - (transform.localScale.z / 2));
-            transform.position += transform.up*0.02f + newPos;
+			DeleteRope delRope = collision.gameObject.GetComponent<DeleteRope> ();
+			delRope.changeX = Mathf.Abs(Mathf.Abs (collision.transform.localRotation.eulerAngles.z) - Mathf.Abs (delRope.angle)) / Mathf.Abs (delRope.angle);
+
+			Vector3 ropePosition = collision.transform.position;
+			Vector3 myPos = transform.position;
+
+			Vector3 distance = ropePosition - myPos;
+
+			Vector3 newPos = new Vector3(((distance.x)-(transform.localScale.x/2))*delRope.changeX, ((distance.y) - (transform.localScale.y / 2))*delRope.changeX, (distance.z) - (transform.localScale.z / 2));
+
+			transform.position += collision.transform.up * 0.06f + newPos;
+
 			rope = true;
-            m_Movement.UseGravity = false;
-        }
+			m_Movement.UseGravity = false;
+		}
 		else
 		{
 			transform.rotation = originalRotation;
@@ -110,13 +119,11 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Rope"))
         {
-            transform.rotation = originalRotation;
             rope = false;
             m_Movement.UseGravity = true;
         }
 		else
 		{
-    	    transform.rotation = originalRotation;
 			m_Movement.UseGravity = !Grounded;
 		}
     }

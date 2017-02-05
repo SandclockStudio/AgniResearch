@@ -92,7 +92,7 @@ public class BurnableMesh : MonoBehaviour
 				m_Mesh.vertices[indexes[2]]
 			};
 
-			TimedTriangle triangle = new TimedTriangle(indexes, vertices, time,index);
+			TimedTriangle triangle = new TimedTriangle(vertices, time);
 			m_BurntTriangles.Add(triangle);
     	}
 	}

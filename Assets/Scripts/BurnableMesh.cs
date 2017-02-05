@@ -51,7 +51,7 @@ public class BurnableMesh : MonoBehaviour
 	{
 		if (m_Touched && m_UpdateCount%2 == 0) 
 		{ 
-			if (m_Mesh.triangles.Length < 40) Destroy(this.gameObject);
+			
 
 			for (int i = m_BurntTriangles.Count - 1; i >= 0; i--)
 			{
@@ -92,7 +92,7 @@ public class BurnableMesh : MonoBehaviour
 				m_Mesh.vertices[indexes[2]]
 			};
 
-			TimedTriangle triangle = new TimedTriangle(indexes, vertices, time);
+			TimedTriangle triangle = new TimedTriangle(indexes, vertices, time,index);
 			m_BurntTriangles.Add(triangle);
     	}
 	}
@@ -102,24 +102,27 @@ public class BurnableMesh : MonoBehaviour
 	{
 		int i = 0;
 
+
+
 		Vector3 point0,point1,point2;
 
 		while (i < m_MeshTriangles.Count)
 		{
+			int nEqual = 0;
+
 			point0 = m_Mesh.vertices[m_MeshTriangles[i]];
 			point1 = m_Mesh.vertices[m_MeshTriangles[i + 1]];
 			point2 = m_Mesh.vertices[m_MeshTriangles[i + 2]];
 
-			// Check if it's the triangle we want to delete and her average distance triangles
-			if (Vector3.Distance(point0,triangle.average) < m_DistanceThreshold
-				|| Vector3.Distance(point1, triangle.average) < m_DistanceThreshold
-				|| Vector3.Distance(point2, triangle.average) < m_DistanceThreshold)
-			{
-				// Remove this triangle
-				m_MeshTriangles.RemoveRange(i, 3);
-			}
+			if (Vector3.Distance(point0,triangle.average) < m_DistanceThreshold) nEqual++;
+		    if (Vector3.Distance(point1, triangle.average) < m_DistanceThreshold) nEqual++;
+			if (Vector3.Distance(point2, triangle.average) < m_DistanceThreshold) nEqual++;
 
-			i += 3;
+			// Check if it's the triangle we want to delete
+			if (nEqual >= 1)
+				m_MeshTriangles.RemoveRange(i, 3);
+			
+				i += 3;
 		}
 
 		m_Mesh.triangles = m_MeshTriangles.ToArray();
@@ -144,8 +147,7 @@ public class BurnableMesh : MonoBehaviour
 		}
 	}
 
-	void PerformRaycast (Collision collision) 
-	{
+	void PerformRaycast (Collision collision) {
 
 		RaycastHit hit;
 

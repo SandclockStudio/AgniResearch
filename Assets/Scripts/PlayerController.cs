@@ -106,7 +106,7 @@ public class PlayerController : MonoBehaviour
 		}
     }
 		
-    private void OnCollisinExit (Collision collision)
+    private void OnCollisionExit (Collision collision)
     {
         if (collision.gameObject.CompareTag("Rope"))
         {

@@ -12,18 +12,20 @@ public class TimedTriangle
 
 	public Vector3 average;
 
+	public int m_Index;
+
 	public bool MarkedForDeletion {
 		get {
 			return m_Lifetime <= 0;
 		}
 	}
 
-	public TimedTriangle (int[] indexes, Vector3[] vertices, float targetTime)
+	public TimedTriangle (int[] indexes, Vector3[] vertices, float targetTime, int index)
 	{
 		m_Indexes = indexes;
 		m_Vertices = vertices;
 		m_Lifetime = targetTime;
-
+		m_Index= index;
 		average = (vertices[0] + vertices[1] + vertices[2]) / 3;
 	}
 

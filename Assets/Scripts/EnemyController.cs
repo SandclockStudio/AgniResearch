@@ -11,7 +11,7 @@ public class EnemyController : MonoBehaviour {
 	public bool m_Direction;
 	private MovementBehaviour m_Movement;
 	private Vector3 initialPosition;
-
+	private float distanceToPoint = 0.05f;
 
 	// Use this for initialization
 	void Start () 
@@ -19,19 +19,20 @@ public class EnemyController : MonoBehaviour {
 		m_Movement = GetComponent<MovementBehaviour>();
 		initialPosition = transform.position;
 		m_Direction = false;
+	
 
 		InvokeRepeating("Shake", 0.35f, 0.35f);
 	}
 
 	void Shake() {
 		m_Direction = !m_Direction;
-		if (m_Direction)
+		if (!m_Direction)
 		{
-			m_Movement.RotateX(35);
+			m_Movement.RotateX(25);
 		}
 		else
 		{
-			m_Movement.RotateX(-35);
+			m_Movement.RotateX(-25);
 		}
 	}
 
@@ -39,15 +40,13 @@ public class EnemyController : MonoBehaviour {
 	void Update () 
 	{
 		
-		if(Vector3.Distance(transform.position, initialPosition + startPoint) < 0.1f)
+		if(Vector3.Distance(transform.position, initialPosition + startPoint) < distanceToPoint)
 		{
-			m_Direction = true;
 			m_Movement.RotateY(180);
 		}
 
-		if(Vector3.Distance(transform.position, initialPosition + endPoint) < 0.1f)
+		if(Vector3.Distance(transform.position, initialPosition + endPoint) < distanceToPoint)
 		{
-			m_Direction = false;
 			m_Movement.RotateY(0);
 		}
 

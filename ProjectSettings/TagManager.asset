@@ -8,6 +8,7 @@ TagManager:
   - Wall
   - Rope
   - Spark
+  - TriggerDirection
   layers:
   - Default
   - TransparentFX

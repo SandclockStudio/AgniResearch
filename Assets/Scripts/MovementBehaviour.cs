@@ -25,7 +25,7 @@ public class MovementBehaviour : MonoBehaviour {
 		}
 	}
 
-	[SerializeField] private float m_Speed = 10;
+	[SerializeField] private float m_Speed;
 	[SerializeField] private float m_JumpForce = 100;
 
 
@@ -50,7 +50,7 @@ public class MovementBehaviour : MonoBehaviour {
 
 	public void Jump () 
 	{
-		if(!isJumping)
+		if (!isJumping)
 		{
 			isJumping = true;
 			m_Rigidbody.AddForce(Vector3.up * m_JumpForce);
@@ -60,5 +60,32 @@ public class MovementBehaviour : MonoBehaviour {
 
 	public void SetRandomize (bool randomize) {
 		m_Randomize = randomize;
+	}
+
+	public void Shake (bool shakeSide, int angle)
+	{
+
+		Vector3 vector = transform.localEulerAngles;
+		if (shakeSide)
+			transform.localEulerAngles = new Vector3(vector.x,vector.y+angle,vector.z+0);
+		
+		else
+
+			transform.localEulerAngles = new Vector3(-90*Time.deltaTime,0,0);
+	}
+
+	public void RotateY (float angle)
+	{
+		transform.eulerAngles = new Vector3(transform.eulerAngles.x,angle,transform.eulerAngles.z);
+	}
+
+	public void RotateX (float angle)
+	{
+		transform.eulerAngles = new Vector3(angle,transform.eulerAngles.y,transform.eulerAngles.z);
+	}
+
+	public void RotateZ (float angle)
+	{
+		transform.eulerAngles = new Vector3(transform.eulerAngles.x,transform.eulerAngles.y,angle);
 	}
 }

@@ -94,15 +94,26 @@ public class PlayerController : MonoBehaviour
 		if (collision.gameObject.CompareTag("Rope"))
 		{
 			DeleteRope delRope = collision.gameObject.GetComponent<DeleteRope> ();
-			delRope.changeX = Mathf.Abs(Mathf.Abs (collision.transform.localRotation.eulerAngles.z) - Mathf.Abs (delRope.angle)) / Mathf.Abs (delRope.angle);
+			if (delRope.changeY > 0.8f) 
+			{
+				delRope.changeX = Mathf.Abs(Mathf.Abs (collision.transform.localRotation.eulerAngles.z) - Mathf.Abs (delRope.angle)) / Mathf.Abs(delRope.angle);
+				delRope.changeY -= Mathf.Abs (Mathf.Abs (collision.transform.localRotation.eulerAngles.z) - Mathf.Abs (delRope.angle)) / Mathf.Abs (delRope.angle);
+			}
+			else
+			{
+				delRope.changeY = Mathf.Abs(Mathf.Abs (collision.transform.localRotation.eulerAngles.z) - Mathf.Abs (delRope.angle)) / Mathf.Abs(delRope.angle);
+				delRope.changeX -= Mathf.Abs (Mathf.Abs (collision.transform.localRotation.eulerAngles.z) - Mathf.Abs (delRope.angle)) / Mathf.Abs (delRope.angle);
+					
+			}
 
 			Vector3 ropePosition = collision.transform.position;
 			Vector3 myPos = transform.position;
 
 			Vector3 distance = ropePosition - myPos;
 
-			Vector3 newPos = new Vector3(((distance.x)-(transform.localScale.x/2))*delRope.changeX, ((distance.y) - (transform.localScale.y / 2))*delRope.changeX, (distance.z) - (transform.localScale.z / 2));
-
+			Vector3 newPos;
+			newPos = new Vector3 (((distance.x) - (transform.localScale.x / 3)) * (delRope.changeX), ((distance.y) - (transform.localScale.y / 3)) * (delRope.changeY), (distance.z) - (transform.localScale.z / 2));
+				
 			transform.position += collision.transform.up * 0.06f + newPos;
 
 			rope = true;

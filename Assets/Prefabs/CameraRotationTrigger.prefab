@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 65044912272069732}
   - component: {fileID: 114250172490178146}
   m_Layer: 0
-  m_Name: CameraTrigger
+  m_Name: CameraRotationTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0

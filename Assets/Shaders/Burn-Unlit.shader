@@ -1,4 +1,4 @@
-Shader "Custom/Bun-Unlit"
+Shader "Custom/Burn-Unlit"
 {
 	Properties
 	{

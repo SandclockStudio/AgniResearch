@@ -9,10 +9,11 @@ public class BurnableMesh : MonoBehaviour
 	[SerializeField] private float m_RaycastDistanceThreshold = 20.0f;
 	[SerializeField] private float m_DistanceThreshold = 0.25f;
 
+    [SerializeField] private bool m_Destructible = true;
+
 	private bool m_Touched = false;
 
 	private Vector3 m_Origin, m_Direction;
-
 
 	private bool rayCasted = false;
 	private MeshFilter m_MeshFilter;
@@ -105,12 +106,13 @@ public class BurnableMesh : MonoBehaviour
                 m_BurnMap.Apply();
 
                 // Mesh
-                if (currentTriangle.MarkedForDeletion && m_MeshDeletionCount <= 1 ) 
-				{
-                    DestroyTriangle(currentTriangle);
-			    	m_BurntTriangles.RemoveAt(i);
-					m_MeshDeletionCount++;
-			    }
+                if (m_Destructible) {
+                    if (currentTriangle.MarkedForDeletion && m_MeshDeletionCount <= 1) {
+                        DestroyTriangle(currentTriangle);
+                        m_BurntTriangles.RemoveAt(i);
+                        m_MeshDeletionCount++;
+                    }
+                }
 			}
 		}
 		else {

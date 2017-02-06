@@ -4869,6 +4869,16 @@ Prefab:
       propertyPath: m_TriangleLifetime
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 23433235035648136, guid: b68d4c8b36a6ab3418b8bf7554f2f342,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: fc348398be103f244b2b2aea3d25c987, type: 2}
+    - target: {fileID: 114174038918941606, guid: b68d4c8b36a6ab3418b8bf7554f2f342,
+        type: 2}
+      propertyPath: m_Destructible
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b68d4c8b36a6ab3418b8bf7554f2f342, type: 2}
   m_IsPrefabParent: 0

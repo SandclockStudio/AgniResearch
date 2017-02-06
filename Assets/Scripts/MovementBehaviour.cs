@@ -13,6 +13,8 @@ public class MovementBehaviour : MonoBehaviour {
 
 	public bool beingInputed;
 
+	public float originalPosition;
+
 	public bool UseGravity 
 	{
 		get 
@@ -35,6 +37,7 @@ public class MovementBehaviour : MonoBehaviour {
 	void Start () 
 	{
 		m_Rigidbody = GetComponentInChildren<Rigidbody>();
+		originalPosition = transform.position.z;
 	}
 	
 	// Update is called once per frame
@@ -87,5 +90,10 @@ public class MovementBehaviour : MonoBehaviour {
 	public void RotateZ (float angle)
 	{
 		transform.eulerAngles = new Vector3(transform.eulerAngles.x,transform.eulerAngles.y,angle);
+	}
+
+	public void setOriginalZ()
+	{
+		transform.position = new Vector3(transform.position.x, transform.position.y, originalPosition);
 	}
 }

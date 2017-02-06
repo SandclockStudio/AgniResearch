@@ -13,6 +13,8 @@ public class BurnableMesh : MonoBehaviour
 
 	private Vector3 m_Origin, m_Direction;
 
+
+	private bool rayCasted = false;
 	private MeshFilter m_MeshFilter;
 	private MeshCollider m_MeshCollider;
 
@@ -212,10 +214,12 @@ public class BurnableMesh : MonoBehaviour
             }
 
 			m_Player.wall = true;
+			m_Player.GetComponent<Rigidbody>().useGravity = false;
 		}
 		else
 		{
 			m_Player.wall = false;
+			m_Player.GetComponent<Rigidbody>().useGravity = true;
 		}
 	 }
 }

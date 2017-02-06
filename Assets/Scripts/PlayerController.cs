@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
 	private Transform m_Fire;
     private Quaternion originalRotation;
 	private float m_FuelAmount = 1;
+	
 	[SerializeField] private float m_MinJumpDistance = 0.3f;
 
 	private RaycastHit hit;
@@ -79,14 +80,14 @@ public class PlayerController : MonoBehaviour
 
 	private void OnCollisionEnter (Collision collision)
 	{
-		//gameObject.GetComponent<Rigidbody> ().velocity = Vector3.zero;
+		gameObject.GetComponent<Rigidbody> ().velocity = Vector3.zero;
 	}
 
 	private void OnCollisionStay (Collision collision)
 	{
         if (collision.gameObject.CompareTag("Rope")) {
             DeleteRope delRope = collision.gameObject.GetComponent<DeleteRope>();
-            if (delRope.changeY > 0.8f) {
+			if ((delRope.changeY > 0.8f)) {
                 delRope.changeX = Mathf.Abs(Mathf.Abs(collision.transform.localRotation.eulerAngles.z) - Mathf.Abs(delRope.angle)) / Mathf.Abs(delRope.angle);
                 delRope.changeY -= Mathf.Abs(Mathf.Abs(collision.transform.localRotation.eulerAngles.z) - Mathf.Abs(delRope.angle)) / Mathf.Abs(delRope.angle);
             }
@@ -102,33 +103,26 @@ public class PlayerController : MonoBehaviour
             Vector3 distance = ropePosition - myPos;
 
             Vector3 newPos;
-            newPos = new Vector3(((distance.x) - (transform.localScale.x / 3)) * (delRope.changeX), ((distance.y) - (transform.localScale.y / 3)) * (delRope.changeY), (distance.z) - (transform.localScale.z / 2));
+			newPos = new Vector3(((distance.x) - (transform.localScale.x / 3)) * (delRope.changeX), ((distance.y) - (transform.localScale.y / 3)) * (delRope.changeY), (distance.z) - (transform.localScale.z / 2));
 
-            transform.position += collision.transform.up * 0.06f + newPos;
+            transform.position += collision.transform.up * 0.05f + newPos;
 
             rope = true;
-        }
-        else {
-            transform.rotation = originalRotation;
-
-            if (collision.gameObject.CompareTag("Wall")) {
-                wall = true;
-            }
+			m_Movement.UseGravity = false;
         }
         
-        m_Movement.UseGravity = !Grounded;
+        
     }
 
     private void OnCollisionExit (Collision collision)
     {
         if (collision.gameObject.CompareTag("Rope")) {
             rope = false;
-        }
-        else if (collision.gameObject.CompareTag("Wall")) {
-            wall = false;
+			m_Movement.UseGravity = true;
+			m_Movement.setOriginalZ();
         }
 
-        m_Movement.UseGravity = !Grounded;
+        
     }
 
 }

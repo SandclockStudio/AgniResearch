@@ -4,11 +4,12 @@
 	{
 		_MainTex("Main Texture", 2D) = "white"{}
 		_BurnMap("Burn Map", 2D) = "white"{}
-		_NoiseTex("Noise Texture", 2D) = "white"{}
 		_BurnGradient("Burn Gradient (RGB)", 2D) = "white"{}
-		
-		_BurnValue("Burn Value", Range(0.0, 1.0)) = 0.5
-		_GradientThreshold("Gradient Threshold", Range(0.0, 1.0)) = 0.75
+		_NoiseTex("Noise Texture", 2D) = "white"{}
+
+		_NoiseValue("Noise Value", Range(0.01, 2.5)) = 0.8
+		_BurnThreshold("Burn Threshold", Range(0.0, 1.0)) = 0.0
+		_GradientThreshold("Gradient Threshold", Range(0.0, 1.0)) = 0.768
 	}
 
 	SubShader
@@ -16,7 +17,6 @@
 		Tags { "Queue"="Transparent" "RenderType"="Transparent"}
 		Blend SrcAlpha OneMinusSrcAlpha
 		Cull Off
-		AlphaTest Greater 0.75 
 
 		CGPROGRAM
 		#pragma surface surf Lambert alpha
@@ -26,7 +26,8 @@
 		sampler2D _BurnMap;
 		sampler2D _BurnGradient;
 
-		float _BurnValue;
+		float _NoiseValue;
+		float _BurnThreshold;
 		float _GradientThreshold;
 
 		struct Input 
@@ -38,23 +39,29 @@
 
 		void surf (Input IN, inout SurfaceOutput o) 
 		{
+			// Get color from the main texture
 			o.Albedo = tex2D(_MainTex, IN.uv_MainTex);
 
-			fixed noise = tex2D(_NoiseTex, IN.uv_NoiseTex).r; 
-			fixed dissolve = tex2D(_BurnMap, IN.uv_BurnMap).r * noise;
-
-			half2 burnCoord = half2(dissolve, 0.5);
-
-			half3 burn = tex2D(_BurnGradient, burnCoord);
-
-			// Decide whether the point is clear, edge, or regular
-			int isBurnt = int(dissolve - (_BurnValue) + 0.99);
-
-			// Set the albeo to the texture, or to the alternate color if it's edge or it's clear
-			o.Albedo = lerp(o.Albedo, burn, isBurnt);
+			// Get the value from the noise texture (0 to 1)
+			fixed noise = tex2D(_NoiseTex, IN.uv_NoiseTex).r * _NoiseValue;
 			
-			// Set alpha to 1 if it's not clear, or to 0 if it is clear
-			o.Alpha = lerp(1.0, 0.0, int(dissolve + _GradientThreshold));
+			// Get the burn amount from the burn map texture
+			fixed burnAmount = tex2D(_BurnMap, IN.uv_BurnMap).r * noise;
+
+			// The coordinate to use for the burn gradient
+			half2 burnCoord = half2(burnAmount, 0.5);
+
+			// The burn gradient color
+			half3 burntColor = tex2D(_BurnGradient, burnCoord);
+
+			// Decide whether the point burnt
+			int isBurnt = int(burnAmount - (_BurnThreshold) + 0.99);
+
+			// Change albedo to the burnt color if the point is burnt, or keep it with the main texture.
+			o.Albedo = lerp(o.Albedo, burntColor, isBurnt);
+			
+			// Set alpha to 0 if point is burnt, or 1 if it is not.
+			o.Alpha = lerp(1.0, 0.0, int(burnAmount + _GradientThreshold));
 		}
 
 		ENDCG

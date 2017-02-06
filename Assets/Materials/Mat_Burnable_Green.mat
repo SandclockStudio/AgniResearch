@@ -92,6 +92,9 @@ Material:
         name: _BumpScale
       second: 1
     - first:
+        name: _BurnThreshold
+      second: 0
+    - first:
         name: _BurnValue
       second: 0
     - first:
@@ -136,6 +139,12 @@ Material:
     - first:
         name: _Mode
       second: 0
+    - first:
+        name: _NoiseEffect
+      second: 0.8
+    - first:
+        name: _NoiseValue
+      second: 1.43
     - first:
         name: _OcclusionStrength
       second: 1

@@ -91,7 +91,7 @@ public class BurnableMesh : MonoBehaviour
                         new Vector2(xCenter + x, yCenter + y)
                     ) / m_BurnRadius);
 
-                    float lifetimeFactor = 1 - (currentTriangle.m_Lifetime / m_TriangleLifetime);
+                    float lifetimeFactor = 1.66f - (currentTriangle.m_Lifetime / m_TriangleLifetime);
 
                     float current = pixels[index].grayscale;
                     float value = (current + distanceFactor) / 2 * lifetimeFactor;
@@ -118,7 +118,7 @@ public class BurnableMesh : MonoBehaviour
         m_MeshDeletionCount = 0;
 	}
 
-	void AddTriangle (int index, float time, Vector2 texCoord)
+	void AddTriangle (int index, float time)
     {
 		if (index * 3 + 2 <= m_MeshTriangles.Count) {
 
@@ -134,7 +134,9 @@ public class BurnableMesh : MonoBehaviour
 				m_Mesh.vertices[indexes[2]]
 			};
 
-			TimedTriangle triangle = new TimedTriangle(vertices, time, texCoord);
+            Vector2 texCoord = (m_Mesh.uv[indexes[0]] + m_Mesh.uv[indexes[1]] + m_Mesh.uv[indexes[2]]) / 3;
+
+            TimedTriangle triangle = new TimedTriangle(vertices, time, texCoord);
 			m_BurntTriangles.Add(triangle);
     	}
 	}
@@ -205,7 +207,7 @@ public class BurnableMesh : MonoBehaviour
 		{
 			if (hit.triangleIndex != -1 && !m_BurntTriangleIndexes.Contains(hit.triangleIndex))
 			{
-				AddTriangle(hit.triangleIndex, m_TriangleLifetime, hit.textureCoord);
+				AddTriangle(hit.triangleIndex, m_TriangleLifetime);
 				m_BurntTriangleIndexes.Add(hit.triangleIndex);
             }
 

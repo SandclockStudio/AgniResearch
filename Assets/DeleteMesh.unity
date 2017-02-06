@@ -1904,7 +1904,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4921585193546138, guid: b68d4c8b36a6ab3418b8bf7554f2f342, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 8.491
+      value: 8.52
       objectReference: {fileID: 0}
     - target: {fileID: 4921585193546138, guid: b68d4c8b36a6ab3418b8bf7554f2f342, type: 2}
       propertyPath: m_LocalPosition.z
@@ -1929,26 +1929,6 @@ Prefab:
     - target: {fileID: 4921585193546138, guid: b68d4c8b36a6ab3418b8bf7554f2f342, type: 2}
       propertyPath: m_RootOrder
       value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 23433235035648136, guid: b68d4c8b36a6ab3418b8bf7554f2f342,
-        type: 2}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: dbe887972f5385a4d9b9d369c206abe7, type: 2}
-    - target: {fileID: 114174038918941606, guid: b68d4c8b36a6ab3418b8bf7554f2f342,
-        type: 2}
-      propertyPath: m_BurnRadius
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 114174038918941606, guid: b68d4c8b36a6ab3418b8bf7554f2f342,
-        type: 2}
-      propertyPath: m_TriangleLifetime
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114174038918941606, guid: b68d4c8b36a6ab3418b8bf7554f2f342,
-        type: 2}
-      propertyPath: m_BurnMapSize
-      value: 64
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b68d4c8b36a6ab3418b8bf7554f2f342, type: 2}

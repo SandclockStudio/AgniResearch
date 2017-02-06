@@ -28,7 +28,6 @@ public class PlayerController : MonoBehaviour
 	}
 
 	private MovementBehaviour m_Movement;
-	//private PlayerMovementBehaviour m_Movement;
     private SparksBehaviour m_Sparks;
 
     public bool Grounded
@@ -57,29 +56,23 @@ public class PlayerController : MonoBehaviour
 
 	    if (Mathf.Abs(aim) > 0)
 	    {
-        	//m_Sparks.Aim(aim);
+        	m_Sparks.Aim(aim);
         }
 		if (Input.GetButtonDown("Sparks"))
 		{
-
-           // m_Sparks.Throw();
+           m_Sparks.Throw();
         }
 
         FuelAmount -= 0.0005f;
 
 		// m_Movement.UseGravity = true;
 
-	
-
-
-		if (Physics.Raycast(transform.position, Vector3.down, out hit, m_MinJumpDistance )) 
-		{
+		if (Physics.Raycast(transform.position, Vector3.down, out hit, m_MinJumpDistance )) {
 			m_Movement.isJumping = false;
 		}
 
-		if(!m_Movement.beingInputed && wall)
-		{
-			m_Movement.SetDirection(Vector3.up,0.2f);
+		if (!m_Movement.beingInputed && wall) {
+			m_Movement.SetDirection(Vector3.up, 0.2f);
 		}
 
     }
@@ -91,52 +84,51 @@ public class PlayerController : MonoBehaviour
 
 	private void OnCollisionStay (Collision collision)
 	{
-		if (collision.gameObject.CompareTag("Rope"))
-		{
-			DeleteRope delRope = collision.gameObject.GetComponent<DeleteRope> ();
-			if (delRope.changeY > 0.8f) 
-			{
-				delRope.changeX = Mathf.Abs(Mathf.Abs (collision.transform.localRotation.eulerAngles.z) - Mathf.Abs (delRope.angle)) / Mathf.Abs(delRope.angle);
-				delRope.changeY -= Mathf.Abs (Mathf.Abs (collision.transform.localRotation.eulerAngles.z) - Mathf.Abs (delRope.angle)) / Mathf.Abs (delRope.angle);
-			}
-			else
-			{
-				delRope.changeY = Mathf.Abs(Mathf.Abs (collision.transform.localRotation.eulerAngles.z) - Mathf.Abs (delRope.angle)) / Mathf.Abs(delRope.angle);
-				delRope.changeX -= Mathf.Abs (Mathf.Abs (collision.transform.localRotation.eulerAngles.z) - Mathf.Abs (delRope.angle)) / Mathf.Abs (delRope.angle);
-					
-			}
+        if (collision.gameObject.CompareTag("Rope")) {
+            DeleteRope delRope = collision.gameObject.GetComponent<DeleteRope>();
+            if (delRope.changeY > 0.8f) {
+                delRope.changeX = Mathf.Abs(Mathf.Abs(collision.transform.localRotation.eulerAngles.z) - Mathf.Abs(delRope.angle)) / Mathf.Abs(delRope.angle);
+                delRope.changeY -= Mathf.Abs(Mathf.Abs(collision.transform.localRotation.eulerAngles.z) - Mathf.Abs(delRope.angle)) / Mathf.Abs(delRope.angle);
+            }
+            else {
+                delRope.changeY = Mathf.Abs(Mathf.Abs(collision.transform.localRotation.eulerAngles.z) - Mathf.Abs(delRope.angle)) / Mathf.Abs(delRope.angle);
+                delRope.changeX -= Mathf.Abs(Mathf.Abs(collision.transform.localRotation.eulerAngles.z) - Mathf.Abs(delRope.angle)) / Mathf.Abs(delRope.angle);
 
-			Vector3 ropePosition = collision.transform.position;
-			Vector3 myPos = transform.position;
+            }
 
-			Vector3 distance = ropePosition - myPos;
+            Vector3 ropePosition = collision.transform.position;
+            Vector3 myPos = transform.position;
 
-			Vector3 newPos;
-			newPos = new Vector3 (((distance.x) - (transform.localScale.x / 3)) * (delRope.changeX), ((distance.y) - (transform.localScale.y / 3)) * (delRope.changeY), (distance.z) - (transform.localScale.z / 2));
-				
-			transform.position += collision.transform.up * 0.06f + newPos;
+            Vector3 distance = ropePosition - myPos;
 
-			rope = true;
-			m_Movement.UseGravity = false;
-		}
-		else
-		{
-			transform.rotation = originalRotation;
-			m_Movement.UseGravity = !Grounded;
-		}
+            Vector3 newPos;
+            newPos = new Vector3(((distance.x) - (transform.localScale.x / 3)) * (delRope.changeX), ((distance.y) - (transform.localScale.y / 3)) * (delRope.changeY), (distance.z) - (transform.localScale.z / 2));
+
+            transform.position += collision.transform.up * 0.06f + newPos;
+
+            rope = true;
+        }
+        else {
+            transform.rotation = originalRotation;
+
+            if (collision.gameObject.CompareTag("Wall")) {
+                wall = true;
+            }
+        }
+        
+        m_Movement.UseGravity = !Grounded;
     }
-		
+
     private void OnCollisionExit (Collision collision)
     {
-        if (collision.gameObject.CompareTag("Rope"))
-        {
+        if (collision.gameObject.CompareTag("Rope")) {
             rope = false;
-            m_Movement.UseGravity = true;
         }
-		else
-		{
-			m_Movement.UseGravity = !Grounded;
-		}
+        else if (collision.gameObject.CompareTag("Wall")) {
+            wall = false;
+        }
+
+        m_Movement.UseGravity = !Grounded;
     }
 
 }

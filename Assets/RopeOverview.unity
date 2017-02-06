@@ -2208,6 +2208,10 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 2.014443
       objectReference: {fileID: 0}
+    - target: {fileID: 100016, guid: a782ecf1b483f418da4fc898fbb6521e, type: 3}
+      propertyPath: m_Name
+      value: WorkTable
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a782ecf1b483f418da4fc898fbb6521e, type: 3}
   m_IsPrefabParent: 0
@@ -3740,6 +3744,10 @@ Prefab:
         type: 2}
       propertyPath: m_Speed
       value: 0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 1989541482222890, guid: d812d3cfe4aa4492cbfed373d5860d0e, type: 2}
+      propertyPath: m_Name
+      value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d812d3cfe4aa4492cbfed373d5860d0e, type: 2}

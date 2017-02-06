@@ -286,7 +286,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc0a79a8e497c489d8b7699922423840, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Speed: 5
+  isJumping: 0
+  beingInputed: 0
+  m_Speed: 0.1
+  m_JumpForce: 0
   m_Randomize: 0
 --- !u!114 &114903566486150526
 MonoBehaviour:

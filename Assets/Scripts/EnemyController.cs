@@ -11,7 +11,7 @@ public class EnemyController : MonoBehaviour {
 	public bool m_Direction;
 	private MovementBehaviour m_Movement;
 	private Vector3 initialPosition;
-	private float distanceToPoint = 0.05f;
+	private float distanceToPoint = 10f;
 
 	// Use this for initialization
 	void Start () 
@@ -28,11 +28,13 @@ public class EnemyController : MonoBehaviour {
 		m_Direction = !m_Direction;
 		if (!m_Direction)
 		{
-			m_Movement.RotateX(25);
+			m_Movement.RotateX(10);
+			m_Movement.RotateZ(10);
 		}
 		else
 		{
-			m_Movement.RotateX(-25);
+			m_Movement.RotateX(-10);
+			m_Movement.RotateZ(-10);
 		}
 	}
 
@@ -57,8 +59,8 @@ public class EnemyController : MonoBehaviour {
 
 	void OnDrawGizmosSelected () {
 		Gizmos.color = Color.red;
-		Gizmos.DrawCube(transform.position + startPoint, Vector3.one / 100);
-		Gizmos.DrawCube(transform.position + endPoint, Vector3.one / 100);
+		Gizmos.DrawCube(transform.position + startPoint, Vector3.one / 10);
+		Gizmos.DrawCube(transform.position + endPoint, Vector3.one / 10);
 	}
 		
 }

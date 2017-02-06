@@ -16,9 +16,6 @@ Category {
 			CGPROGRAM
 			#pragma vertex vert
 			#pragma fragment frag
-			#pragma target 2.0
-			#pragma multi_compile_particles
-			#pragma multi_compile_fog
 
 			#include "UnityCG.cginc"
 
@@ -38,8 +35,6 @@ Category {
 				float2 texcoord : TEXCOORD0;
 				float3 normal : TEXCOORD1;
 				float3 viewDir : TEXCOORD2;
-				UNITY_FOG_COORDS(1)
-				UNITY_VERTEX_OUTPUT_STEREO
 			};
 			
 			float4 _MainTex_ST;
@@ -47,9 +42,6 @@ Category {
 			v2f vert (appdata v)
 			{
 				v2f o;
-
-				UNITY_SETUP_INSTANCE_ID(v);
-				UNITY_INITIALIZE_VERTEX_OUTPUT_STEREO(o);
 
 				// Set vertex position and texture coordinate
 				o.vertex = UnityObjectToClipPos(v.vertex);
@@ -66,25 +58,16 @@ Category {
 
 				o.color = v.color;
 
-				UNITY_TRANSFER_FOG(o,o.vertex);
-				
 				return o;
 			}
 
 			fixed4 frag (v2f i) : SV_Target
 			{
-				float3 normalDirection = normalize(i.normal);
-				float3 viewDirection = normalize(i.viewDir);
-
-				float dotProduct = dot(viewDirection, normalDirection);
-				float absolute = abs(dotProduct);
-				float alphaValue = min(1.0, pow(absolute, 3));
+				float alphaValue = min(1.0, pow(abs(dot(i.viewDir, i.normal)), 3));
 
 				fixed4 col = i.color * _TintColor * tex2D(_MainTex, i.texcoord);
 				
 				col.a = saturate(alphaValue * (log(length(col.xyz) * 50)));
-
-				UNITY_APPLY_FOG_COLOR(i.fogCoord, col, fixed4(0,0,0,0)); // fog towards black due to our blend mode
 
 				return col;
 			}

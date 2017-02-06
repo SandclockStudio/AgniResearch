@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class TimedTriangle 
 {
-	private Vector3[] m_Vertices;
+    private Vector3[] m_Vertices;
 	public float m_Lifetime;
-	public Vector3 average;
+	public Vector3 m_Average;
+    public Vector2 m_TexCoord;
 
 	public bool MarkedForDeletion {
 		get {
@@ -14,12 +15,14 @@ public class TimedTriangle
 		}
 	}
 
-	public TimedTriangle (Vector3[] vertices, float targetTime)
+	public TimedTriangle (Vector3[] vertices, float targetTime, Vector2 texCoord)
 	{
 		m_Vertices = vertices;
 		m_Lifetime = targetTime;
-		average = (vertices[0] + vertices[1] + vertices[2]) / 3;
-	}
+		m_Average = (vertices[0] + vertices[1] + vertices[2]) / 3;
+        m_TexCoord = texCoord;
+
+    }
 
 	public void Update ()
 	{
@@ -35,6 +38,5 @@ public class TimedTriangle
 	{
 		return m_Vertices;
 	}
-		
 
 }

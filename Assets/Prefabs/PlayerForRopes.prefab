@@ -28,7 +28,7 @@ GameObject:
   - component: {fileID: 114074684603056444}
   - component: {fileID: 114590980681349368}
   m_Layer: 0
-  m_Name: Player-Cube 1
+  m_Name: PlayerForRopes
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

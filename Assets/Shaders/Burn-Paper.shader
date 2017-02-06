@@ -1,4 +1,4 @@
-﻿Shader "Custom/Paper-Burn"
+﻿Shader "Custom/Burn-Paper"
 {
 	Properties
 	{
@@ -16,7 +16,7 @@
 	{
 		Tags { "Queue"="Transparent" "RenderType"="Transparent"}
 		Blend SrcAlpha OneMinusSrcAlpha
-		Cull Off
+		Cull Back
 
 		CGPROGRAM
 		#pragma surface surf Lambert alpha

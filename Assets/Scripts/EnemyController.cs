@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor;
+//using UnityEditor;
 
 public class EnemyController : MonoBehaviour {
 
@@ -56,11 +56,11 @@ public class EnemyController : MonoBehaviour {
 		m_Movement.SetDirection(Vector3.left,1);
 	
 	}
-
+    /*
 	void OnDrawGizmosSelected () {
 		Gizmos.color = Color.red;
 		Gizmos.DrawCube(transform.position + startPoint, Vector3.one / 10);
 		Gizmos.DrawCube(transform.position + endPoint, Vector3.one / 10);
 	}
-		
+	*/	
 }

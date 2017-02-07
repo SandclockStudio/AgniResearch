@@ -76,12 +76,12 @@ public class BurnableMesh : MonoBehaviour
                 int xCenter = (int)(m_BurnMapSize * currentTriangle.m_TexCoord.x);
                 int yCenter = (int)(m_BurnMapSize * currentTriangle.m_TexCoord.y);
 
-                if (xCenter > m_BurnMapSize) xCenter = m_BurnMapSize;
-                else if (xCenter  < 0)        xCenter = m_BurnRadius;
-                if (yCenter  > m_BurnMapSize) yCenter = m_BurnMapSize ;
-                else if (yCenter  < 0)        yCenter = m_BurnRadius;
+                if (xCenter + m_BurnRadius * 2 > m_BurnMapSize) xCenter = m_BurnMapSize - m_BurnRadius * 2;
+                else if (xCenter - m_BurnRadius * 2 < 0)        xCenter = m_BurnRadius * 2;
+                if (yCenter + m_BurnRadius * 2 > m_BurnMapSize) yCenter = m_BurnMapSize - m_BurnRadius * 2;
+                else if (yCenter - m_BurnRadius * 2 < 0)        yCenter = m_BurnRadius * 2;
 
-                Color[] pixels = m_BurnMap.GetPixels(xCenter, yCenter, m_BurnRadius * 2, m_BurnRadius * 2);
+		Color[] pixels = m_BurnMap.GetPixels(xCenter, yCenter, m_BurnRadius * 2, m_BurnRadius * 2);
 
                 for (int index = 0, x = -m_BurnRadius, y = -m_BurnRadius; index < pixels.Length; index++, x++) {
                     if (x == m_BurnRadius) {
@@ -102,7 +102,7 @@ public class BurnableMesh : MonoBehaviour
                     pixels[index] = new Color(value, value, value);
                 }
 
-                m_BurnMap.SetPixels(xCenter - m_BurnRadius, yCenter - m_BurnRadius, m_BurnRadius * 2, m_BurnRadius * 2, pixels);
+                m_BurnMap.SetPixels(xCenter, yCenter, m_BurnRadius * 2, m_BurnRadius * 2, pixels);
                 m_BurnMap.Apply();
 
                 // Mesh
